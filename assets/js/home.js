@@ -50,17 +50,17 @@
     var wx = 80 + w.x / 100 * 540, ww = Math.max(4, w.w / 100 * 540);
     BANDS.forEach(function (b, i) {
       var y = top + i * (H + 10);
-      s += '<text x="0" y="' + (y + 20) + '" font-family="Noto Sans TC, sans-serif" font-size="14" fill="#51585D">' + b.name + '</text>';
-      s += '<line x1="80" y1="' + (y + H / 2) + '" x2="620" y2="' + (y + H / 2) + '" stroke="#C9C8C1" stroke-width="1"/>';
+      s += '<text x="0" y="' + (y + 20) + '" font-family="Noto Sans TC, sans-serif" font-size="14" fill="#5C5C5C">' + b.name + '</text>';
+      s += '<line x1="80" y1="' + (y + H / 2) + '" x2="620" y2="' + (y + H / 2) + '" stroke="#DDDDDD" stroke-width="1"/>';
       b.ticks.forEach(function (t) {
         var tx = 80 + t / 100 * 540, inside = tx >= wx && tx <= wx + ww;
-        s += '<rect x="' + (tx - 2) + '" y="' + (y + 6) + '" width="4" height="' + (H - 12) + '" fill="' + (inside ? "#A33C24" : "#171A1C") + '" opacity="' + (inside ? 1 : 0.35) + '"/>';
+        s += '<rect x="' + (tx - 2) + '" y="' + (y + 6) + '" width="4" height="' + (H - 12) + '" fill="' + (inside ? "#CF3F2B" : "#111111") + '" opacity="' + (inside ? 1 : 0.35) + '"/>';
       });
     });
     var bottom = top + BANDS.length * (H + 10) - 4;
-    s += '<rect x="' + wx + '" y="6" width="' + ww + '" height="' + (bottom - 2) + '" fill="rgba(36,77,99,0.08)" stroke="#244D63" stroke-width="1.5"/>';
-    s += '<text x="' + Math.min(wx, 560) + '" y="' + (bottom + 22) + '" font-family="IBM Plex Mono, monospace" font-size="12" fill="#244D63">觀看窗口：' + w.name + '</text>';
-    s += '<text x="620" y="' + (bottom + 22) + '" font-family="IBM Plex Mono, monospace" font-size="12" fill="#51585D" text-anchor="end">時間 →</text></svg>';
+    s += '<rect x="' + wx + '" y="6" width="' + ww + '" height="' + (bottom - 2) + '" fill="rgba(31,78,107,0.08)" stroke="#1F4E6B" stroke-width="1.5"/>';
+    s += '<text x="' + Math.min(wx, 560) + '" y="' + (bottom + 22) + '" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1F4E6B">觀看窗口：' + w.name + '</text>';
+    s += '<text x="620" y="' + (bottom + 22) + '" font-family="IBM Plex Mono, monospace" font-size="12" fill="#5C5C5C" text-anchor="end">時間 →</text></svg>';
     twSvg.innerHTML = s;
     twOut.innerHTML = '<dl><dt>看得到</dt><dd>' + w.see + '</dd><dt>看不到</dt><dd>' + w.miss + '</dd></dl>';
   }

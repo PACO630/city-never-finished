@@ -77,7 +77,7 @@
       return '<a class="box" href="' + chHref(c.id) + '" data-chlink="' + c.id + '" title="第' + c.n + '章 ' + c.tc + '"><span class="sr-only">第</span>' + c.n + '<span class="sr-only">章 ' + c.tc + '</span></a>';
     }).join("") + '</div></nav>';
 
-  var corner = '<svg class="corner" viewBox="0 0 64 64" aria-hidden="true"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#171A1C" stroke-width="1"/></pattern></defs><path d="M0 0H64L56 8 48 6 44 14 36 12 32 22 24 20 22 30 14 28 12 38 6 36 0 48Z" fill="url(#hatch)" stroke="#171A1C"/></svg>';
+  var corner = '<svg class="corner" viewBox="0 0 64 64" aria-hidden="true"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#111111" stroke-width="1"/></pattern></defs><path d="M0 0H64L56 8 48 6 44 14 36 12 32 22 24 20 22 30 14 28 12 38 6 36 0 48Z" fill="url(#hatch)" stroke="#111111"/></svg>';
 
   var motion = '<button class="box motion-toggle" type="button" aria-pressed="' + rm + '">' +
     '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 15 15 1v14z" fill="none" stroke="currentColor"/><path d="M5 15 15 5" stroke="currentColor"/></svg><span class="lbl">減少動畫</span><span class="sr-only">（目前' + (rm ? "開啟" : "關閉") + '）</span></button>';
@@ -241,17 +241,17 @@
   function P(x, y, z, s) { return [(x - y) * C30 * s, (x + y) * S30 * s - z * s]; }
   function pts(arr) { return arr.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" "); }
   var STY = {
-    solid:  { stroke: "#171A1C", sw: 1.5, dash: "", fill: "#D8D9D3", top: "#FBFAF6", side: "#E6E5DF" },
-    paper:  { stroke: "#171A1C", sw: 1.5, dash: "", fill: "#FBFAF6", top: "#FBFAF6", side: "#EFEDE6" },
-    dotted: { stroke: "#51585D", sw: 1, dash: "1.5 3", fill: "none", top: "none", side: "none" },
-    hypo:   { stroke: "#A33C24", sw: 2, dash: "5 4", fill: "rgba(163,60,36,0.12)", top: "rgba(163,60,36,0.16)", side: "rgba(163,60,36,0.08)" },
-    ghost:  { stroke: "#A33C24", sw: 1, dash: "3 4", fill: "none", top: "none", side: "none" },
-    memory: { stroke: "#53634B", sw: 1.5, dash: "", fill: "rgba(83,99,75,0.14)", top: "rgba(83,99,75,0.18)", side: "rgba(83,99,75,0.1)" },
-    archive:{ stroke: "#244D63", sw: 1.5, dash: "", fill: "rgba(36,77,99,0.12)", top: "rgba(36,77,99,0.16)", side: "rgba(36,77,99,0.08)" },
-    frame:  { stroke: "#171A1C", sw: 1, dash: "", fill: "none", top: "none", side: "none" },
-    skin:   { stroke: "#171A1C", sw: 1, dash: "", fill: "rgba(251,250,246,0.35)", top: "rgba(251,250,246,0.45)", side: "rgba(251,250,246,0.3)" },
-    wire:   { stroke: "#FBFAF6", sw: 1.2, dash: "", fill: "none", top: "none", side: "none" },
-    wiredash:{ stroke: "#FBFAF6", sw: 1.2, dash: "4 4", fill: "none", top: "none", side: "none" }
+    solid:  { stroke: "#111111", sw: 1.5, dash: "", fill: "#E2E2E2", top: "#FFFFFF", side: "#EDEDED" },
+    paper:  { stroke: "#111111", sw: 1.5, dash: "", fill: "#FFFFFF", top: "#FFFFFF", side: "#F3F3F3" },
+    dotted: { stroke: "#5C5C5C", sw: 1, dash: "1.5 3", fill: "none", top: "none", side: "none" },
+    hypo:   { stroke: "#CF3F2B", sw: 2, dash: "5 4", fill: "rgba(207,63,43,0.12)", top: "rgba(207,63,43,0.16)", side: "rgba(207,63,43,0.08)" },
+    ghost:  { stroke: "#CF3F2B", sw: 1, dash: "3 4", fill: "none", top: "none", side: "none" },
+    memory: { stroke: "#3F6B4A", sw: 1.5, dash: "", fill: "rgba(63,107,74,0.14)", top: "rgba(63,107,74,0.18)", side: "rgba(63,107,74,0.1)" },
+    archive:{ stroke: "#1F4E6B", sw: 1.5, dash: "", fill: "rgba(31,78,107,0.12)", top: "rgba(31,78,107,0.16)", side: "rgba(31,78,107,0.08)" },
+    frame:  { stroke: "#111111", sw: 1, dash: "", fill: "none", top: "none", side: "none" },
+    skin:   { stroke: "#111111", sw: 1, dash: "", fill: "rgba(255,255,255,0.35)", top: "rgba(255,255,255,0.45)", side: "rgba(255,255,255,0.3)" },
+    wire:   { stroke: "#FFFFFF", sw: 1.2, dash: "", fill: "none", top: "none", side: "none" },
+    wiredash:{ stroke: "#FFFFFF", sw: 1.2, dash: "4 4", fill: "none", top: "none", side: "none" }
   };
   function isoBox(b, s) {
     var st = STY[b.style || "solid"];
@@ -276,7 +276,7 @@
   }
   function isoLine(l, s) {
     var a = P(l.x1, l.y1, l.z || 0, s), b = P(l.x2, l.y2, l.z || 0, s);
-    var color = l.color || "#171A1C";
+    var color = l.color || "#111111";
     return '<line x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '" stroke="' + color + '" stroke-width="' + (l.sw || 1.5) + '"' + (l.dash ? ' stroke-dasharray="' + l.dash + '"' : "") + ' stroke-linecap="round"/>';
   }
   function isoSVG(items, opt) {
@@ -288,16 +288,21 @@
       if (a.order != null || b.order != null) { ka = a.order != null ? a.order : ka; kb = b.order != null ? b.order : kb; }
       return ka - kb;
     });
+    var ci = 0;
     var body = sorted.map(function (it) {
+      var out = draw(it);
+      return it.anim ? '<g class="chg" style="--i:' + (ci++) + '">' + out + '</g>' : out;
+    }).join("");
+    function draw(it) {
       if (it.kind === "line") return isoLine(it, s);
       if (it.kind === "hot") {
         var q = P(it.x, it.y, it.z || 0, s);
-        var on = it.active ? "#A33C24" : "#171A1C";
-        return '<g class="hot" data-hot="' + it.id + '" style="cursor:pointer"><circle cx="' + q[0].toFixed(1) + '" cy="' + q[1].toFixed(1) + '" r="13" fill="transparent"/><circle cx="' + q[0].toFixed(1) + '" cy="' + q[1].toFixed(1) + '" r="9" fill="' + on + '" stroke="#FBFAF6" stroke-width="1.5"/><text x="' + q[0].toFixed(1) + '" y="' + (q[1] + 3.6).toFixed(1) + '" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FBFAF6" text-anchor="middle">' + it.text + '</text></g>';
+        var on = it.active ? "#CF3F2B" : "#111111";
+        return '<g class="hot" data-hot="' + it.id + '" style="cursor:pointer"><circle cx="' + q[0].toFixed(1) + '" cy="' + q[1].toFixed(1) + '" r="13" fill="transparent"/><circle class="pulse" cx="' + q[0].toFixed(1) + '" cy="' + q[1].toFixed(1) + '" r="9" fill="none" stroke="' + on + '" stroke-width="1.5"/><circle cx="' + q[0].toFixed(1) + '" cy="' + q[1].toFixed(1) + '" r="9" fill="' + on + '" stroke="#FFFFFF" stroke-width="1.5"/><text x="' + q[0].toFixed(1) + '" y="' + (q[1] + 3.6).toFixed(1) + '" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle">' + it.text + '</text></g>';
       }
-      if (it.kind === "label") { var p = P(it.x, it.y, it.z || 0, s); return '<text x="' + p[0].toFixed(1) + '" y="' + p[1].toFixed(1) + '" font-family="IBM Plex Mono, monospace" font-size="' + (it.size || 11) + '" fill="' + (it.color || "#171A1C") + '" stroke="#FBFAF6" stroke-width="3" paint-order="stroke" text-anchor="middle">' + it.text + '</text>'; }
+      if (it.kind === "label") { var p = P(it.x, it.y, it.z || 0, s); return '<text x="' + p[0].toFixed(1) + '" y="' + p[1].toFixed(1) + '" font-family="IBM Plex Mono, monospace" font-size="' + (it.size || 11) + '" fill="' + (it.color || "#111111") + '" stroke="#FFFFFF" stroke-width="3" paint-order="stroke" text-anchor="middle">' + it.text + '</text>'; }
       return isoBox(it, s);
-    }).join("");
+    }
     // 計算邊界
     var xs = [], ys = [];
     items.forEach(function (it) {
@@ -323,7 +328,7 @@
     ch03: [ { x: 0, y: 0, w: 3.2, d: 3.2, h: 0.4, style: "wire" }, { x: 0.2, y: 0.2, w: 2.8, d: 2.8, h: 0.4, z: 0.9, style: "wire" }, { x: 0.4, y: 0.4, w: 2.4, d: 2.4, h: 0.4, z: 1.8, style: "wiredash" }, { x: 0.6, y: 0.6, w: 2, d: 2, h: 0.4, z: 2.7, style: "wire" } ],
     ch04: [ { x: 1.1, y: 1.1, w: 1, d: 1, h: 5, style: "wire" }, { x: 0, y: 1.1, w: 1, d: 1, h: 1, z: 0.6, style: "wire" }, { x: 2.2, y: 1.1, w: 1, d: 1, h: 1, z: 1.6, style: "wire" }, { x: 1.1, y: 0, w: 1, d: 1, h: 1, z: 2.6, style: "wiredash" }, { x: 1.1, y: 2.2, w: 1, d: 1, h: 1, z: 3.4, style: "wire" }, { x: 0, y: 1.1, w: 1, d: 1, h: 1, z: 3.8, style: "wiredash" } ],
     ch05: [ { x: 0, y: 0, w: 6, d: 4, h: 0, style: "wire" }, { x: 0.5, y: 0.5, w: 1.5, d: 1, h: 1, style: "wire" }, { x: 2.5, y: 0.5, w: 1.5, d: 1, h: 1, style: "wiredash" }, { x: 4.2, y: 2.3, w: 1.4, d: 1.2, h: 1.4, style: "wiredash" }, { x: 0.5, y: 2.5, w: 1.5, d: 1, h: 1, style: "wire" } ],
-    ch06: [ { kind: "line", x1: 0, y1: 2, x2: 7, y2: 2, color: "#FBFAF6", dash: "2 5", sw: 1.4 }, { x: 0.4, y: 0, w: 1.4, d: 1.4, h: 2.2, style: "wire" }, { x: 3, y: 2.8, w: 1.2, d: 1.2, h: 1.2, style: "wire" }, { x: 5.2, y: 0, w: 1.4, d: 1.4, h: 3, style: "wiredash" } ]
+    ch06: [ { kind: "line", x1: 0, y1: 2, x2: 7, y2: 2, color: "#FFFFFF", dash: "2 5", sw: 1.4 }, { x: 0.4, y: 0, w: 1.4, d: 1.4, h: 2.2, style: "wire" }, { x: 3, y: 2.8, w: 1.2, d: 1.2, h: 1.2, style: "wire" }, { x: 5.2, y: 0, w: 1.4, d: 1.4, h: 3, style: "wiredash" } ]
   };
   document.querySelectorAll("[data-peek]").forEach(function (n) {
     var k = n.getAttribute("data-peek");

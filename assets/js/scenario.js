@@ -21,14 +21,14 @@
     { id: "c2", layer: "L50", x: 7.2, y: 2.55, w: 0.4, d: 0.4, h: 0.32, style: "paper" },
     { id: "c3", layer: "L50", x: 5.0, y: 5.05, w: 0.4, d: 0.4, h: 0.32, style: "paper" },
     { id: "c4", layer: "L50", x: 9.4, y: 5.05, w: 0.4, d: 0.4, h: 0.32, style: "paper" },
-    { id: "aisle", layer: "L60", kind: "line", x1: -0.2, y1: 4, x2: 13.4, y2: 4, color: "#171A1C", sw: 2.2 },
-    { id: "lk85", layer: "L60", kind: "line", x1: 13.4, y1: 4, x2: 16.6, y2: 1.2, color: "#51585D", sw: 1.2, dash: "2 4" },
-    { id: "lkst", layer: "L60", kind: "line", x1: 13.4, y1: 4, x2: 16.4, y2: 4, color: "#51585D", sw: 1.2, dash: "2 4" },
-    { id: "lklr", layer: "L60", kind: "line", x1: 13.4, y1: 4, x2: 16.6, y2: 7.6, color: "#51585D", sw: 1.2, dash: "2 4" },
-    { id: "lkmem", layer: "L60", kind: "line", x1: -0.2, y1: 4, x2: -1.4, y2: 4, color: "#51585D", sw: 1.2, dash: "2 4" },
+    { id: "aisle", layer: "L60", kind: "line", x1: -0.2, y1: 4, x2: 13.4, y2: 4, color: "#111111", sw: 2.2 },
+    { id: "lk85", layer: "L60", kind: "line", x1: 13.4, y1: 4, x2: 16.6, y2: 1.2, color: "#5C5C5C", sw: 1.2, dash: "2 4" },
+    { id: "lkst", layer: "L60", kind: "line", x1: 13.4, y1: 4, x2: 16.4, y2: 4, color: "#5C5C5C", sw: 1.2, dash: "2 4" },
+    { id: "lklr", layer: "L60", kind: "line", x1: 13.4, y1: 4, x2: 16.6, y2: 7.6, color: "#5C5C5C", sw: 1.2, dash: "2 4" },
+    { id: "lkmem", layer: "L60", kind: "line", x1: -0.2, y1: 4, x2: -1.4, y2: 4, color: "#5C5C5C", sw: 1.2, dash: "2 4" },
     { id: "n85", layer: "L10", x: 16.6, y: 0.2, w: 0.9, d: 0.9, h: 4.2, style: "dotted" },
     { id: "nst", layer: "L10", x: 16.4, y: 3.4, w: 1.9, d: 1.3, h: 1.0, style: "dotted" },
-    { id: "lrt", layer: "L60", kind: "line", x1: 15.8, y1: 8.2, x2: 19.4, y2: 8.2, color: "#51585D", sw: 2.4, dash: "8 4" },
+    { id: "lrt", layer: "L60", kind: "line", x1: 15.8, y1: 8.2, x2: 19.4, y2: 8.2, color: "#5C5C5C", sw: 2.4, dash: "8 4" },
     { id: "nlr", layer: "L60", x: 16.6, y: 7.2, w: 1.0, d: 0.7, h: 0.15, style: "dotted" },
     { id: "mem", layer: "L70", x: -2.6, y: 3.4, w: 1.2, d: 1.2, h: 0, style: "memory" }
   ];
@@ -80,7 +80,7 @@
         change: "保持配置，並標出尚待討論的項目。", depends: "同上。", burden: "避免把「不改」浪漫化：誰因為不改而持續不便？" }
     }
   };
-  function lab(x, y, z, text) { return { kind: "label", layer: "L80", x: x, y: y, z: z, text: text, color: "#A33C24", order: 900 }; }
+  function lab(x, y, z, text) { return { kind: "label", layer: "L80", x: x, y: y, z: z, text: text, color: "#CF3F2B", order: 900 }; }
 
   /* ---------- 歷史紀錄（只列有依據的節點，不插值） ---------- */
   var HIST = [
@@ -104,7 +104,7 @@
     if (!st.resources) {
       items.forEach(function (it) {
         if (it.changed && it.style === "hypo") it.style = "dotted";
-        if (it.kind === "label" && it.layer === "L80") it.color = "#51585D";
+        if (it.kind === "label" && it.layer === "L80") it.color = "#5C5C5C";
       });
     }
     // 圖層過濾
@@ -120,7 +120,7 @@
       items.push({ kind: "label", layer: "L90", x: 18.7, y: 3.2, z: 1.8, text: "高雄車站", order: 950 });
       items.push({ kind: "label", layer: "L90", x: 19.8, y: 8.2, z: 1.6, text: "輕軌（敘事連結）", order: 950 });
     }
-    if (st.layers.L70 !== false) items.push({ kind: "label", layer: "L90", x: -2.0, y: 4.0, z: 2.6, text: "記憶線索", color: "#53634B", order: 950 });
+    if (st.layers.L70 !== false) items.push({ kind: "label", layer: "L90", x: -2.0, y: 4.0, z: 2.6, text: "記憶線索", color: "#3F6B4A", order: 950 });
     return items;
   }
 
@@ -221,8 +221,14 @@
       panel.innerHTML = html;
     }
 
+    var animNext = false;
+    function markAnim(items) {
+      if (!animNext) return items;
+      items.forEach(function (it) { if (it.changed) it.anim = true; });
+      return items;
+    }
     function render2D() {
-      var items = compose(st);
+      var items = markAnim(compose(st));
       q("[data-2d]").innerHTML = CITY.isoSVG(items, { scale: full ? 30 : 26, pad: 16, title: "情境示意圖：" + (st.mode === "history" ? "歷史紀錄模式，概念基底" : SCN[st.scn].label + " " + st.t) });
       qa("[data-2d] .hot").forEach(function (g) {
         g.addEventListener("click", function () { selectHot(g.getAttribute("data-hot")); });
@@ -230,19 +236,19 @@
     }
 
     /* ---------- CSS 3D ---------- */
-    var U = 34, OX = 3.4, OY = 0.8;
+    var U = 34, OX = 3.4, OY = 0.8, anim3i = 0;
     var CAMS = { overview: { rx: 58, rz: -38, s: 1 }, activity: { rx: 40, rz: -18, s: 1.35 }, route: { rx: 0, rz: 0, s: 0.95 } };
     var cam = { rx: 58, rz: -38, s: 1 };
     var FACE = {
-      solid: ["#FBFAF6", "#E6E5DF", "#D8D9D3", "1px solid #171A1C"],
-      paper: ["#FBFAF6", "#F1EFE8", "#E9E7E0", "1px solid #171A1C"],
-      skin: ["rgba(251,250,246,.55)", "rgba(251,250,246,.35)", "rgba(251,250,246,.35)", "1px solid #171A1C"],
-      frame: ["transparent", "transparent", "transparent", "1px solid #171A1C"],
-      dotted: ["transparent", "transparent", "transparent", "1px dotted #51585D"],
-      hypo: ["rgba(163,60,36,.16)", "rgba(163,60,36,.1)", "rgba(163,60,36,.1)", "2px dashed #A33C24"],
-      ghost: ["transparent", "transparent", "transparent", "1px dashed #A33C24"],
-      memory: ["rgba(83,99,75,.2)", "rgba(83,99,75,.12)", "rgba(83,99,75,.12)", "1.5px solid #53634B"],
-      archive: ["rgba(36,77,99,.25)", "rgba(36,77,99,.15)", "rgba(36,77,99,.18)", "1.5px solid #244D63"]
+      solid: ["#FFFFFF", "#EDEDED", "#E2E2E2", "1px solid #111111"],
+      paper: ["#FFFFFF", "#F0F0F0", "#F0F0F0", "1px solid #111111"],
+      skin: ["rgba(255,255,255,.55)", "rgba(255,255,255,.35)", "rgba(255,255,255,.35)", "1px solid #111111"],
+      frame: ["transparent", "transparent", "transparent", "1px solid #111111"],
+      dotted: ["transparent", "transparent", "transparent", "1px dotted #5C5C5C"],
+      hypo: ["rgba(207,63,43,.16)", "rgba(207,63,43,.1)", "rgba(207,63,43,.1)", "2px dashed #CF3F2B"],
+      ghost: ["transparent", "transparent", "transparent", "1px dashed #CF3F2B"],
+      memory: ["rgba(63,107,74,.2)", "rgba(63,107,74,.12)", "rgba(63,107,74,.12)", "1.5px solid #3F6B4A"],
+      archive: ["rgba(31,78,107,.25)", "rgba(31,78,107,.15)", "rgba(31,78,107,.18)", "1.5px solid #1F4E6B"]
     };
     function face(cls, css, f) {
       return '<div class="fc ' + cls + '" style="' + css + 'background:' + f.bg + ';border:' + f.b + '"></div>';
@@ -251,7 +257,7 @@
       var F = FACE[it.style] || FACE.solid;
       var W = it.w * U, D = it.d * U, H = it.h * U, Z = (it.z || 0) * U;
       var x = (it.x + OX) * U, y = (it.y + OY) * U;
-      var html = '<div class="b3" style="left:' + x + 'px;top:' + y + 'px;width:' + W + 'px;height:' + D + 'px;transform:translateZ(' + Z + 'px)">';
+      var html = '<div class="b3' + (it.anim ? ' chg' : '') + '" style="' + (it.anim ? '--z:' + Z + 'px;--i:' + (anim3i++) + ';' : '') + 'left:' + x + 'px;top:' + y + 'px;width:' + W + 'px;height:' + D + 'px;transform:translateZ(' + Z + 'px)">';
       html += face("top", "width:" + W + "px;height:" + D + "px;transform:translateZ(" + H + "px);", { bg: F[0], b: F[3] });
       if (H > 0) {
         html += face("s", "top:" + (D - H) + "px;width:" + W + "px;height:" + H + "px;transform-origin:50% 100%;transform:rotateX(-90deg);", { bg: F[1], b: F[3] });
@@ -264,21 +270,22 @@
     function line3d(it) {
       var x1 = (it.x1 + OX) * U, y1 = (it.y1 + OY) * U, x2 = (it.x2 + OX) * U, y2 = (it.y2 + OY) * U;
       var len = Math.hypot(x2 - x1, y2 - y1), ang = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
-      var border = (it.dash ? "dashed " : "solid ") + (it.color || "#171A1C");
+      var border = (it.dash ? "dashed " : "solid ") + (it.color || "#111111");
       return '<div class="l3" style="left:' + x1 + 'px;top:' + y1 + 'px;width:' + len + 'px;border-top:' + Math.max(1.5, it.sw || 1.5) + 'px ' + border + ';transform:translateZ(1px) rotate(' + ang + 'deg)"></div>';
     }
     function bill(it, inner, cls) {
       var x = (it.x + OX) * U, y = (it.y + OY) * U, z = (it.z || 0) * U;
-      return '<div class="bb ' + (cls || "") + '" style="left:' + x + 'px;top:' + y + 'px;transform:translate3d(-50%,-50%,' + z + 'px) rotateZ(calc(var(--rz) * -1)) rotateX(calc(var(--rx) * -1))">' + inner + '</div>';
+      if (it.anim) cls = (cls || "") + " chg";
+      return '<div class="bb ' + (cls || "") + '" style="' + (it.anim ? '--i:' + (anim3i++) + ';' : '') + 'left:' + x + 'px;top:' + y + 'px;transform:translate3d(-50%,-50%,' + z + 'px) rotateZ(calc(var(--rz) * -1)) rotateX(calc(var(--rx) * -1))">' + inner + '</div>';
     }
     function render3D() {
       var world = q("[data-world]");
       if (!world) return;
-      var items = compose(st);
-      var html = "";
+      var items = markAnim(compose(st));
+      var html = ""; anim3i = 0;
       items.forEach(function (it) {
         if (it.kind === "line") html += line3d(it);
-        else if (it.kind === "label") html += bill(it, '<span style="color:' + (it.color || "#171A1C") + '">' + it.text + '</span>', "lbl3");
+        else if (it.kind === "label") html += bill(it, '<span style="color:' + (it.color || "#111111") + '">' + it.text + '</span>', "lbl3");
         else if (it.kind === "hot") html += bill(it, '<button type="button" class="hot3' + (it.active ? " on" : "") + '" data-hot3="' + it.id + '" aria-label="熱點 ' + it.text + '">' + it.text + '</button>', "hotbb");
         else html += box3d(it);
       });
@@ -303,6 +310,7 @@
       root.querySelector(".xp-status .lb").textContent = st.mode === "history" ? "歷史紀錄" : "假設情境";
       root.querySelector(".xp-status .lb").className = "lb " + (st.mode === "history" ? "lb-data" : "lb-hypo");
       var hp = q("[data-histpos]"); if (hp) hp.textContent = (st.histIdx + 1) + "／" + HIST.length;
+      animNext = false;
     }
 
     function selectHot(id) {
@@ -320,6 +328,7 @@
       if (t.name && t.name.indexOf("res-") === 0) st.resources = t.value === "1";
       if (t.hasAttribute("data-layer")) st.layers[t.getAttribute("data-layer")] = t.checked;
       qa("label.radio").forEach(function (l) { l.classList.toggle("is-on", l.querySelector("input").checked); });
+      if (t.type === "radio") animNext = true;
       render();
       if (t.type === "radio") CITY.announce("已切換：" + SCN[st.scn].label + "，" + (st.t === "t0" ? "t0 概念基底" : st.t.replace("t", "t+")) + "。" + SCN[st.scn][st.t].change);
     });
@@ -384,7 +393,11 @@
           return;
         }
         st.view = "3d";
-        requestAnimationFrame(function () { render(); msg.hidden = true; CITY.announce("空間實驗已開啟。可用總覽、活動層、路徑層三個視角。"); });
+        var target = { rx: cam.rx, rz: cam.rz, s: cam.s };
+        cam = { rx: 0, rz: -120, s: 0.35 };
+        animNext = true;
+        requestAnimationFrame(function () { render(); msg.hidden = true;
+          setTimeout(function () { cam = target; applyCam(); }, 60); CITY.announce("空間實驗已開啟。可用總覽、活動層、路徑層三個視角。"); });
         try { localStorage.setItem("city-view", "3d"); } catch (e) {}
       } else {
         setOrbit(false);
