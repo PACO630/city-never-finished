@@ -133,7 +133,7 @@ p { margin: 0 0 24px; }
 
 /* ---------- 左下導覽欄：標誌、線框立方體、章節方格 ---------- */
 .rail {
-  position: fixed; z-index: 40; left: 20px; bottom: 20px; width: 104px;
+  position: fixed; z-index: 40; left: 20px; bottom: 52px; width: 104px;
   display: none; flex-direction: column; gap: 4px;
 }
 @media (min-width: 1100px) { .rail { display: flex; } }
@@ -468,16 +468,6 @@ blockquote.q footer { font-size: 14px; color: var(--muted); line-height: 1.6; }
 .reveal.in { opacity: 1; transform: none; }
 .no-js .reveal { opacity: 1; transform: none; }
 
-/* ---------- 第一章：時間窗口 ---------- */
-.seg { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
-.seg .box { font-size: 15px; }
-.tw { border: 1px solid var(--ink); background: var(--sheet); padding: 20px; }
-.tw-svg { width: 100%; height: auto; }
-.tw-out { margin-top: 14px; font-size: 16px; line-height: 1.7; }
-.tw-out dl { display: grid; grid-template-columns: 6em 1fr; gap: 4px 12px; margin: 8px 0 0; }
-.tw-out dt { color: var(--muted); font-size: 15px; }
-.tw-out dd { margin: 0; }
-
 /* ---------- 第三章：層次 ---------- */
 .layer-table { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
 .layer-table .cell { border: 1px solid var(--ink); background: var(--sheet); padding: 16px; font-size: 15px; line-height: 1.65; }
@@ -765,3 +755,80 @@ html.reduce-motion .frags, html.reduce-motion .frag-btn, html.reduce-motion .sta
 
 /* ScrollTrigger 需要即時捲動才能正確量測位置 */
 html.has-motion { scroll-behavior: auto; }
+
+
+/* =========================================================
+   v1.1 修改：照片、思想註腳、滑桿、進度線、互動
+   ========================================================= */
+body { padding-top: var(--top); }
+.motion-toggle { min-width: 36px; min-height: 36px; width: 36px; height: 36px; padding: 0; }
+.motion-toggle svg { width: 14px; height: 14px; }
+
+.kicker.try { color: var(--change); margin: 0 0 8px; }
+.manifesto { font-family: var(--f-serif); font-size: clamp(22px, 2.2vw, 30px); line-height: 1.6; font-weight: 500; }
+.author-line { border-top: 1px solid var(--rule); padding-top: 18px; color: var(--muted); font-size: 17px; }
+.drag-hint p { margin: 0 0 4px; }
+.drag-hint p:last-child { font-family: var(--f-serif); font-size: 19px; line-height: 1.6; }
+
+figure.photo { margin: 0; }
+figure.photo img { width: 100%; height: auto; display: block; border: 1px solid var(--ink); background: var(--tint); }
+.ch-wide.photo img { max-height: 78vh; object-fit: cover; }
+figure.photo.wide img { aspect-ratio: 16 / 9; object-fit: cover; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); align-items: start; }
+.pair .thinker { margin-top: 0; }
+@media (max-width: 767px) { .pair { grid-template-columns: 1fr; } }
+
+/* 思想註腳 */
+.thinker { border-left: 3px solid var(--change); padding: 10px 16px; margin: 32px 0; max-width: 560px; font-size: 15px; line-height: 1.7; }
+.thinker p { margin: 0 0 6px; }
+.thinker-label { font: 12px var(--f-mono); color: var(--change); letter-spacing: .08em; }
+.thinker-name { font-weight: 700; }
+.thinker-me { color: var(--ink); }
+
+/* 02 章滑桿對照 */
+.compare { position: relative; margin: 0; aspect-ratio: 3 / 4; max-width: 640px; overflow: hidden; border: 1px solid var(--ink); --p: 50%; }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.compare-top { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--p)) 0 0); }
+.compare-line { position: absolute; top: 0; bottom: 0; left: var(--p); width: 2px; background: var(--change); transform: translateX(-1px); pointer-events: none; }
+.compare-line::after { content: "⟷"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--change); color: #fff; font-size: 14px; padding: 6px 8px; }
+.compare-tag { position: absolute; bottom: 12px; background: rgba(255,255,255,.92); font-size: 13px; padding: 4px 8px; pointer-events: none; }
+.compare-tag.l { left: 12px; } .compare-tag.r { right: 12px; }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; touch-action: pan-y; }
+.compare:focus-within { outline: 2px solid var(--ink); outline-offset: 3px; }
+.compare-cap { font-family: var(--f-serif); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.5; font-weight: 500; margin: 16px 0 0; max-width: 640px; }
+@media (max-width: 760px) { .compare-tag { font-size: 11px; } }
+
+/* 05 章 3D */
+.exp-frame { width: 100%; height: 820px; border: 0; display: block; border-top: 1px solid var(--rule); }
+@media (max-width: 760px) { .exp-frame { height: 1100px; } }
+.exp-link { margin: 8px 0 0; font-size: 14px; text-align: right; }
+
+.your-city { font-family: var(--f-serif); font-size: 20px; line-height: 1.7; max-width: 640px; margin: 8px 0 0; }
+.foot-small { margin: 12px 0 0; font-size: 13px; }
+
+/* 進度線（左下，永遠畫不滿） */
+.progress { position: fixed; z-index: 41; left: 20px; bottom: 20px; width: 104px; font: 12px var(--f-mono); color: var(--ink); pointer-events: none; }
+.progress-track { display: block; height: 2px; background: var(--rule); margin-top: 6px; }
+.progress-bar { display: block; height: 100%; width: 0; background: var(--change); transition: width .6s ease; }
+.progress-end { position: absolute; right: 0; top: 0; font-size: 11px; color: var(--muted); opacity: 0; transition: opacity .4s; }
+.progress.is-end .progress-end { opacity: 1; }
+@media (max-width: 1099px) { .progress { width: 180px; left: var(--margin); bottom: 18px; background: rgba(255,255,255,.9); padding: 4px 6px 6px; } }
+html.reduce-motion .progress-bar { transition: none; }
+
+/* 01 章：拼不完的 */
+.frag-msg {
+  position: fixed; z-index: 85; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  font-family: var(--f-serif); font-weight: 500; font-size: clamp(24px, 3.2vw, 44px); line-height: 1.5; text-align: center;
+  background: #fff; border: 1px solid var(--ink); padding: 24px 36px; pointer-events: none; opacity: 0; max-width: 86vw;
+}
+
+/* 思想脈絡時間線 */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--ink); }
+.tl-item { display: grid; grid-template-columns: 6.5em 1fr; gap: 20px; padding: 28px 0 28px 24px; border-bottom: 1px solid var(--rule); position: relative; max-width: 900px; }
+.tl-item::before { content: ""; position: absolute; left: -6px; top: 38px; width: 11px; height: 11px; background: var(--change); }
+.tl-year { font-family: var(--f-en); font-weight: 600; font-size: 28px; letter-spacing: -0.02em; line-height: 1.2; }
+.tl-item h2 { font-size: 22px; line-height: 1.4; margin-bottom: 10px; }
+.tl-work { display: block; font-size: 15px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+.tl-item p { margin: 0 0 8px; max-width: 36em; }
+.tl-back { font-size: 14px; }
+@media (max-width: 599px) { .tl-item { grid-template-columns: 1fr; gap: 6px; } }

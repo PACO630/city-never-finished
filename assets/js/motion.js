@@ -46,22 +46,7 @@
       var n = Math.floor(o.p * text.length), out = text.slice(0, n);
       for (var i = n; i < text.length; i++) out += text[i] === " " ? " " : pick(GLYPHS);
       el.textContent = out;
-    }, onComplete: function () { el.textContent = text; } });
-  }
-  function splitChars(el) {
-    // 只切文字節點，保留子元素
-    var chars = [];
-    Array.prototype.slice.call(el.childNodes).forEach(function (n) {
-      if (n.nodeType === 3) {
-        var frag = document.createDocumentFragment();
-        Array.from(n.textContent).forEach(function (c) {
-          var s = document.createElement("span"); s.className = "w"; s.textContent = c; s.setAttribute("aria-hidden", "true");
-          frag.appendChild(s); chars.push(s);
-        });
-        n.parentNode.replaceChild(frag, n);
-      }
-    });
-    return chars;
+    }, onComplete: function () { el.textContent = text; }, onInterrupt: function () { el.textContent = text; } });
   }
 
   /* ---------- 首屏大字 ---------- */
@@ -77,8 +62,7 @@
     intro.from(heroChars, { yPercent: 115, rotate: 10, duration: 1.1, ease: "expo.out", stagger: 0.028 })
       .from(".tc-title", { y: 30, opacity: 0, duration: 0.8, ease: "expo.out" }, "-=0.8")
       .from(".subtitle, .entry-note", { y: 20, opacity: 0, duration: 0.7, ease: "expo.out", stagger: 0.08 }, "-=0.6")
-      .from(".home .right > *", { y: 40, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.1 }, "-=0.9")
-      .from(".home .ph", { clipPath: "inset(0 100% 0 0)", duration: 1.1, ease: "expo.inOut" }, "-=0.9");
+      .from(".home .right > *", { y: 40, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.1 }, "-=0.9");
   }
   // 子頁標題
   document.querySelectorAll(".page-head h1").forEach(function (h) {
@@ -86,10 +70,12 @@
     gsap.from(".page-head p, .page-head .chips li", { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.05, delay: 0.3 });
   });
 
-  /* ---------- mono 標籤解碼 ---------- */
-  document.querySelectorAll(".kicker, .stage-meta span, .page .row-top span").forEach(function (el) {
-    if (el.children.length) return;
-    if (ST) ST.create({ trigger: el, start: "top 92%", once: true, onEnter: function () { scramble(el, 0.8); } });
+  /* ---------- 章節大標題解碼：只用在 01–06 的中文標題，每章一次，結束寫回原字 ---------- */
+  document.querySelectorAll(".chapter h2 .tc-txt").forEach(function (el) {
+    var h2 = el.closest("h2");
+    if (h2) h2.setAttribute("aria-label", h2.textContent.trim());
+    el.setAttribute("data-text", el.textContent);
+    if (ST) ST.create({ trigger: el.closest(".stage") || el, start: "top 60%", once: true, onEnter: function () { scramble(el, 1.1); } });
   });
 
   /* ---------- 進場 ---------- */
@@ -98,19 +84,28 @@
       start: "top 90%", once: true,
       onEnter: function (b) { gsap.to(b, { opacity: 1, y: 0, duration: 1, ease: "expo.out", stagger: 0.12, overwrite: true }); }
     });
-    document.querySelectorAll(".question, .closing").forEach(function (q) {
+    document.querySelectorAll(".question, .closing, .compare-cap").forEach(function (q) {
       gsap.fromTo(q, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 1.4, ease: "expo.inOut",
         scrollTrigger: { trigger: q, start: "top 85%", once: true } });
     });
     gsap.utils.toArray(".index li").forEach(function (li, i) {
       gsap.from(li, { x: -60, opacity: 0, duration: 0.9, ease: "expo.out", delay: i * 0.06, scrollTrigger: { trigger: li, start: "top 95%", once: true } });
     });
-    gsap.utils.toArray(".ref-card, .layer-table .cell, .brand-stack li, .assets .ph, .qcard li").forEach(function (c) {
+    gsap.utils.toArray(".ref-card, .brand-stack li, .thinker, .tl-item").forEach(function (c) {
       gsap.from(c, { y: 50, rotationX: -25, transformPerspective: 800, transformOrigin: "50% 0%", opacity: 0, duration: 0.9, ease: "expo.out",
         scrollTrigger: { trigger: c, start: "top 92%", once: true } });
     });
-    gsap.utils.toArray(".ch-body .ph, .tw, [data-scenario]").forEach(function (c) {
+    gsap.utils.toArray("figure.photo, .compare").forEach(function (c) {
       gsap.from(c, { clipPath: "inset(0 0 100% 0)", duration: 1.2, ease: "expo.inOut", scrollTrigger: { trigger: c, start: "top 88%", once: true } });
+    });
+    // 02 章滑桿：第一次進畫面時自己滑一下，提示可以拖
+    document.querySelectorAll("[data-compare]").forEach(function (box) {
+      if (!box.cityCompare) return;
+      ST.create({ trigger: box, start: "top 70%", once: true, onEnter: function () {
+        var o = { v: 50 }, up = function () { box.cityCompare(o.v); };
+        gsap.timeline({ delay: 0.6 }).to(o, { v: 80, duration: 0.9, ease: "power2.inOut", onUpdate: up })
+          .to(o, { v: 50, duration: 0.9, ease: "power2.inOut", onUpdate: up });
+      } });
     });
   }
 
@@ -136,17 +131,13 @@
       gsap.fromTo(n, { yPercent: -70, rotation: -6 }, { yPercent: -30, rotation: 4, ease: "none", scrollTrigger: { trigger: stage, start: "top bottom", end: "bottom top", scrub: true } });
 
       var booklet = stage.querySelector(".booklet"), pl = stage.querySelector(".page-l"), pr = stage.querySelector(".page-r"), peek = stage.querySelector(".peek");
-      var h2 = stage.querySelector("h2"); var chars = h2 ? splitChars(h2) : [];
-      if (h2) h2.setAttribute("aria-label", h2.textContent);
-
       mm.add("(min-width: 900px)", function () {
         var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: "top 85%", end: "top 10%", scrub: 0.9 } });
         tl.fromTo(booklet, { rotationX: 62, y: 160, scale: 0.66 }, { rotationX: 0, y: 0, scale: 1, ease: "power2.out", duration: 1 }, 0)
           .fromTo(pl, { rotationY: -94 }, { rotationY: -16, ease: "power3.out", duration: 0.8 }, 0.2)
           .fromTo(pr, { rotationY: 94 }, { rotationY: 16, ease: "power3.out", duration: 0.8 }, 0.2)
-          .fromTo(peek, { y: 120, opacity: 0, scale: 0.6 }, { y: 0, opacity: 1, scale: 1, ease: "back.out(1.8)", duration: 0.5 }, 0.6)
-          .fromTo(chars, { yPercent: 80, opacity: 0 }, { yPercent: 0, opacity: 1, stagger: 0.02, duration: 0.3, ease: "power2.out" }, 0.65);
-        return function () { gsap.set([booklet, pl, pr, peek].concat(chars), { clearProps: "all" }); };
+          .fromTo(peek, { y: 120, opacity: 0, scale: 0.6 }, { y: 0, opacity: 1, scale: 1, ease: "back.out(1.8)", duration: 0.5 }, 0.6);
+        return function () { gsap.set([booklet, pl, pr, peek], { clearProps: "all" }); };
       });
       mm.add("(max-width: 899px)", function () {
         gsap.fromTo([pl, pr], { y: 80, rotationX: -35, opacity: 0, transformPerspective: 900, transformOrigin: "50% 0%" },
@@ -155,7 +146,7 @@
     });
   }
 
-  /* ---------- 碎片 ---------- */
+  /* ---------- 碎片：漂浮、可拖曳、會躲游標；02–05 章組成輪廓 ---------- */
   var defs = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>' +
     '<pattern id="fg-dots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.5" fill="#9A9A9A"/></pattern>' +
     '<pattern id="fg-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#8A8A8A" stroke-width="1.6"/></pattern></defs></svg>';
@@ -174,18 +165,18 @@
     '<path d="M0 0 40 40H0z" fill="url(#fg-hatch)"/>'
   ];
   var desktop = window.matchMedia("(min-width: 1100px)").matches;
-  var COUNT = desktop ? 30 : 14;
+  var wide = window.matchMedia("(min-width: 760px)").matches;
+  var COUNT = desktop ? 40 : 14;
   var layer = document.createElement("div"); layer.className = "frags"; layer.setAttribute("aria-hidden", "true");
   layer.innerHTML = defs;
   var pieces = [];
   for (var i = 0; i < COUNT; i++) {
-    var size = Math.round(rand(desktop ? 20 : 16, desktop ? 54 : 36) / 4) * 4;
+    var size = Math.round(rand(desktop ? 16 : 14, desktop ? 44 : 32) / 4) * 4;
     var shape = i === 0 ? '<rect width="40" height="40" fill="#CF3F2B"/>' : SHAPES[i % SHAPES.length];
     var d = document.createElement("div"); d.className = "frag";
     d.style.width = size + "px"; d.style.height = size + "px";
     d.innerHTML = '<svg viewBox="0 0 40 40">' + shape + '</svg>';
     layer.appendChild(d);
-    // 角落堆疊位置（左上三角形）
     var gx = rand(0, 96), gy = rand(0, Math.max(4, 96 - gx));
     pieces.push({ el: d, size: size, gx: gx, gy: gy, gr: pick([0, 90, 180, 270]), sx: 0, sy: 0, sr: 0 });
   }
@@ -194,46 +185,126 @@
   fbtn.className = "box frag-btn"; fbtn.type = "button"; fbtn.textContent = "收回碎片";
   document.body.appendChild(fbtn);
 
-  function layoutScatter() {
+  // full：首屏炸開到整個畫面；margins：閱讀時只漂在左右留白，不壓在正文上
+  var scatterMode = "full";
+  function layoutScatter(mode) {
+    scatterMode = mode || scatterMode;
     var W = window.innerWidth, H = window.innerHeight;
-    pieces.forEach(function (p) {
-      p.sx = rand(W * 0.04, W - p.size - 20);
+    var leftMax = Math.max(60, (document.querySelector(".ch-text") || { getBoundingClientRect: function () { return { left: 160 }; } }).getBoundingClientRect().left - 70);
+    pieces.forEach(function (p, i) {
+      if (scatterMode === "full" || W < 760) {
+        p.sx = rand(W * 0.04, W - p.size - 20);
+      } else {
+        // 左側留白或右側 32% 區域
+        p.sx = (i % 3 === 0) ? rand(8, Math.max(12, leftMax - p.size)) : rand(W * 0.68, W - p.size - 16);
+      }
       p.sy = rand(H * 0.12, H - p.size - 20);
       p.sr = p.gr + pick([-180, -90, 90, 180]);
     });
   }
   layoutScatter();
-  var scattered = false, manual = false;
-  pieces.forEach(function (p) { gsap.set(p.el, { x: p.gx, y: p.gy, rotation: p.gr }); });
+  var scattered = false, manual = false, active = null;
+  pieces.forEach(function (p) {
+    gsap.set(p.el, { x: p.gx, y: p.gy, rotation: p.gr });
+    // 漂浮：只動內層 svg，不和位置動畫互相覆蓋
+    gsap.to(p.el.firstChild, { y: rand(-9, 9), rotation: rand(-10, 10), duration: rand(2.6, 4.4), ease: "sine.inOut", yoyo: true, repeat: -1, delay: rand(0, 2) });
+  });
 
   function scatter(delay) {
-    scattered = true; fbtn.classList.add("show");
+    scattered = true; active = null; fbtn.classList.add("show");
     pieces.forEach(function (p, i) {
-      gsap.to(p.el, { x: p.sx, y: p.sy, rotation: p.sr, duration: rand(1.1, 1.6), ease: "expo.out", delay: (delay || 0) + i * 0.018, overwrite: true });
+      p.assembled = false; p.el.style.pointerEvents = "";
+      gsap.to(p.el, { x: p.sx, y: p.sy, rotation: p.sr, opacity: 1, duration: rand(1.1, 1.6), ease: "expo.out", delay: (delay || 0) + i * 0.018, overwrite: true });
     });
   }
   function gather() {
-    scattered = false; fbtn.classList.remove("show");
+    scattered = false; active = null; fbtn.classList.remove("show");
     pieces.forEach(function (p, i) {
-      gsap.to(p.el, { x: p.gx, y: p.gy, rotation: p.gr, duration: 0.9, ease: "power3.inOut", delay: i * 0.012, overwrite: true });
+      p.assembled = false; p.el.style.pointerEvents = "";
+      gsap.to(p.el, { x: p.gx, y: p.gy, rotation: p.gr, opacity: window.innerWidth < 760 ? 0 : 1, duration: 0.9, ease: "power3.inOut", delay: i * 0.012, overwrite: true });
     });
   }
   fbtn.addEventListener("click", function () { manual = true; gather(); });
   layer.addEventListener("click", function (e) {
-    if (!scattered && e.target.closest(".frag")) { manual = true; layoutScatter(); scatter(0); }
+    if (!scattered && e.target.closest(".frag")) { manual = true; layoutScatter(window.scrollY < window.innerHeight * 0.5 && isHome ? "full" : "margins"); scatter(0); }
   });
 
-  // 首頁一開始炸開；往下捲收回；回到頂端再散開
-  if (isHome && window.scrollY < window.innerHeight * 0.5) scatter(0.6);
+  // 一開始散開漂浮（首頁從角落炸開到整個畫面；往下讀時退到兩側留白）
+  var atTop = isHome && window.scrollY < window.innerHeight * 0.5;
+  layoutScatter(atTop ? "full" : "margins");
+  if (atTop || window.innerWidth >= 760) scatter(atTop ? 0.6 : 0.2);
+  else pieces.forEach(function (p) { gsap.set(p.el, { opacity: 0 }); });
   window.addEventListener("scroll", function () {
-    if (manual) return;
-    var y = window.scrollY;
-    if (scattered && y > window.innerHeight * 0.55) gather();
-    else if (!scattered && isHome && y < 40) { layoutScatter(); scatter(0); }
+    var top = window.scrollY < window.innerHeight * 0.5;
+    // 手機沒有留白：離開封面就收回角落（藏在頂端列下），回到封面再散開
+    if (window.innerWidth < 760 && !manual) {
+      if (top && !scattered && isHome) { layoutScatter("full"); scatter(0); }
+      else if (!top && scattered) gather();
+      return;
+    }
+    if (!scattered || active) return;
+    if (isHome && top && scatterMode !== "full") { layoutScatter("full"); scatter(0); }
+    else if (!top && scatterMode !== "margins") { layoutScatter("margins"); scatter(0); }
   }, { passive: true });
-  window.addEventListener("resize", function () { if (scattered) { layoutScatter(); scatter(0); } });
+  window.addEventListener("resize", function () { if (scattered && !active) { layoutScatter(); scatter(0); } });
 
-  // 游標靠近時推開
+  // 02–05 章：碎片組成該章的輪廓（故意留缺口），離開就散開；01、06 不組合
+  function samplePath(pts, n) {
+    var seg = [], out = [], total = 0;
+    for (var a = 0; a < pts.length - 1; a++) {
+      var len = Math.hypot(pts[a + 1][0] - pts[a][0], pts[a + 1][1] - pts[a][1]);
+      seg.push([pts[a][0], pts[a][1], pts[a + 1][0], pts[a + 1][1], len]); total += len;
+    }
+    for (var k = 0; k < n; k++) {
+      var dd = (k / n) * total;
+      for (var s = 0; s < seg.length; s++) {
+        if (dd <= seg[s][4]) { var t = dd / seg[s][4]; out.push([seg[s][0] + (seg[s][2] - seg[s][0]) * t, seg[s][1] + (seg[s][3] - seg[s][1]) * t]); break; }
+        dd -= seg[s][4];
+      }
+    }
+    return out;
+  }
+  var SILHOUETTES = {
+    ch02: [[5,55],[50,20],[95,55],[5,55],[10,55],[10,90],[30,90],[30,55],[50,55],[50,90],[70,90],[70,55],[90,55],[90,90]],
+    ch03: [[5,90],[5,45],[25,45],[25,90],[25,35],[45,35],[45,90],[45,50],[63,48],[65,90],[65,40],[90,40],[90,90],[5,90]],
+    ch04: [[20,90],[20,45],[38,45],[38,10],[62,10],[62,45],[80,45],[80,90],[58,90],[58,62],[42,62],[42,90],[20,90]],
+    ch05: [[5,90],[5,60],[18,40],[31,60],[31,90],[31,60],[44,40],[57,60],[57,90],[57,60],[70,40],[83,60],[83,90]]
+  };
+  function assemble(id) {
+    if (!scattered) return;
+    active = id;
+    var W = window.innerWidth, H = window.innerHeight;
+    var bw = W * 0.36, bh = Math.min(H * 0.62, bw), bx = W * 0.6, by = H * 0.2;
+    var free = pieces.filter(function (p) { return !p.dragging; });
+    var pts = samplePath(SILHOUETTES[id], Math.floor(pieces.length * 0.88));
+    free.forEach(function (p, i) {
+      var pt = pts[i];
+      if (!pt) { p.assembled = false; return; }      // 剩下的繼續漂著
+      p.assembled = true; p.el.style.pointerEvents = "none";
+      gsap.to(p.el, { x: bx + pt[0] / 100 * bw - p.size / 2, y: by + pt[1] / 100 * bh - p.size / 2, rotation: 0, opacity: 0.35,
+        duration: 1.2, ease: "power3.inOut", delay: i * 0.015, overwrite: true });
+    });
+  }
+  function release(id) {
+    if (active !== id) return;
+    active = null; layoutScatter("margins");
+    pieces.forEach(function (p, i) {
+      if (!p.assembled) return;
+      p.assembled = false; p.el.style.pointerEvents = "";
+      gsap.to(p.el, { x: p.sx, y: p.sy, rotation: p.sr, opacity: 1, duration: 1.1, ease: "expo.out", delay: i * 0.01, overwrite: true });
+    });
+  }
+  if (ST && wide) {
+    Object.keys(SILHOUETTES).forEach(function (id) {
+      var sec = document.getElementById(id);
+      if (!sec) return;
+      ST.create({ trigger: sec, start: "top 60%", end: "bottom 40%",
+        onEnter: function () { assemble(id); }, onEnterBack: function () { assemble(id); },
+        onLeave: function () { release(id); }, onLeaveBack: function () { release(id); } });
+    });
+  }
+
+  // 游標靠近時推開（組成輪廓的碎片不動）
   var mx = -999, my = -999, queued = false;
   window.addEventListener("pointermove", function (e) {
     mx = e.clientX; my = e.clientY;
@@ -241,7 +312,7 @@
     requestAnimationFrame(function () {
       queued = false;
       pieces.forEach(function (p) {
-        if (p.dragging) return;
+        if (p.dragging || p.assembled) return;
         var x = gsap.getProperty(p.el, "x"), y = gsap.getProperty(p.el, "y");
         var cx = x + p.size / 2, cy = y + p.size / 2, dx = cx - mx, dy = cy - my, dist = Math.hypot(dx, dy), R = 120;
         if (dist < R && dist > 0.1) {
@@ -252,6 +323,22 @@
     });
   }, { passive: true });
 
+  // 01 章：拖碎片拼城市；第 8 次出現「拼不完的」
+  var hint = document.querySelector("[data-drag-hint]");
+  if (hint && window.Draggable && wide) hint.hidden = false;
+  var drags = 0, msgShown = false;
+  function countDrag() {
+    drags++;
+    if (drags < 8 || msgShown) return;
+    msgShown = true;
+    var m = document.createElement("div");
+    m.className = "frag-msg"; m.setAttribute("role", "status");
+    m.innerHTML = "拼不完的。<br>城市從來沒完成過。";
+    document.body.appendChild(m);
+    gsap.timeline({ onComplete: function () { m.remove(); } })
+      .to(m, { opacity: 1, duration: 0.8, ease: "power2.out" })
+      .to(m, { opacity: 0, duration: 0.8, ease: "power2.in" }, "+=3");
+  }
   if (window.Draggable) {
     pieces.forEach(function (p) {
       window.Draggable.create(p.el, {
@@ -261,10 +348,12 @@
         onDragEnd: function () {
           if (!scattered) { scattered = true; manual = true; fbtn.classList.add("show"); }
           gsap.to(p.el, { rotation: "+=90", duration: 0.5, ease: "back.out(2)" });
+          countDrag();
         }
       });
     });
   }
+
 
   /* ---------- 秘技：↑↑↓↓←→←→BA ---------- */
   var KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"], kp = 0;
@@ -339,6 +428,12 @@
         target.setAttribute("tabindex", "-1"); target.focus({ preventScroll: true });
         warpOut();
       });
+      return;
+    }
+    // 同頁其他錨點：平滑捲動
+    if (href.length > 1 && href.charAt(0) === "#") {
+      var t2 = document.getElementById(href.slice(1));
+      if (t2) { e.preventDefault(); t2.scrollIntoView({ behavior: "smooth", block: "start" }); history.replaceState(null, "", href); }
       return;
     }
     // 換頁

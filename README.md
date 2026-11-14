@@ -1,22 +1,23 @@
 # 城市不是完成品 THE CITY IS NEVER FINISHED
 
-淡江大學建築學系 當代思潮課程｜線上展覽（製作預覽 v1.0）
+淡江大學建築學系 當代思潮課程｜線上展覽 v1.1｜陳星劭
 
 純靜態網站（HTML／CSS／JavaScript），不需要建置工具，可以直接放上 GitHub Pages。
 
 ## 檔案結構
 
 ```
-index.html            入口＋六章主敘事（#ch01 至 #ch06）
-explore/              探索城市：2D 情境比較＋CSS 3D 空間實驗
-places/               場所檔案（#ziyou-market #85-tower #kaohsiung-station #light-rail #vendor-memory）
-references/           案例索引（五項國際參照）
-sources/              資料與方法（五種標籤、原話登錄、來源索引 S01–S18）
-about/                策展論述與製作狀態
+index.html            封面＋六章主敘事（#ch01 至 #ch06），各章互動直接寫在章節內
+explore/              自由黃昏市場 3D 思想實驗（Three.js，05 章以 iframe 嵌入）
+places/               場所檔案（#ziyou-market #85-tower #kaohsiung-station #light-rail）
+references/           思想脈絡（1961–2014 時間線）
+sources/              資料與方法（研究方法、來源索引）
+about/                策展論述與製作說明
 assets/css/style.css  視覺系統（色彩 token、網格、方框按鈕、翻開的盒子）
 assets/js/main.js     共用外框、章節進度立方體、來源抽屜、減少動畫、來源資料
-assets/js/home.js     首頁互動（索引預覽、時間窗口、層次切換、提問卡）
-assets/js/scenario.js 情境資料與比較元件（2D 與 3D 共用同一份資料）
+assets/js/home.js     目錄預覽、02 章滑桿
+assets/js/motion.js   動畫（GSAP）：碎片、章節標題解碼、盒子轉場、輪廓組合
+assets/img/           作者拍攝的 8 張照片
 .nojekyll             讓 GitHub Pages 直接提供檔案
 ```
 

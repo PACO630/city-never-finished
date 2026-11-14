@@ -4,25 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>城市不是完成品｜THE CITY IS NEVER FINISHED</title>
-<meta name="description" content="從市場、地標與移動路徑出發，閱讀不同時間層次中的城市。2D 敘事與 3D 思想實驗，邀請你問：改變由誰決定？">
+<meta name="description" content="城市從來沒完成過。從高雄的市場、老屋、85 大樓出發，一個關於什麼該留下、誰有權決定的線上策展。">
 <meta property="og:title" content="城市不是完成品｜THE CITY IS NEVER FINISHED">
-<meta property="og:description" content="從市場、地標與移動路徑出發，閱讀不同時間層次中的城市。2D 敘事與 3D 思想實驗，邀請你問：改變由誰決定？">
+<meta property="og:description" content="城市從來沒完成過。從高雄的市場、老屋、85 大樓出發，一個關於什麼該留下、誰有權決定的線上策展。">
 <meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/city-music-center.jpg">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFFFFF'/%3E%3Cpath d='M5 11 16 5l11 6-11 6z M5 11v10l11 6V17 M27 11v10l-11 6' fill='none' stroke='%23111111' stroke-width='1.6'/%3E%3C/svg%3E">
 </head>
 <body>
 
-<p class="preview-note"><b>製作預覽 v1.0</b>｜本頁含「待取得」影像占位與待確認標記，現場照片、訪談與 3D 模型尚未取得；正式公開前需由策展人確認內容、署名與權利。</p>
-
 <main id="main">
 
-<!-- ================= 入口 ================= -->
-<header class="home" aria-labelledby="site-title">
+<!-- ================= 封面 ================= -->
+<header class="home" id="top" aria-labelledby="site-title">
   <div class="left">
     <h1 id="site-title">
       <span class="en-title" lang="en"><span>THE CITY</span><span>IS NEVER</span><span>FINISHED</span></span>
@@ -32,461 +31,762 @@
     <p class="entry-note">線上策展｜高雄觀察｜含假設情境</p>
   </div>
   <div class="right">
-    <p class="lead" style="margin:0">我們習慣用完工的建築辨認城市。但一座市場的下一次交易、一棟大樓的下一種用途、一條路徑的下一位使用者，都還沒有結束。從高雄出發，看看城市如何被使用、維持，也被重新想像。</p>
+<div class="cv" data-cv>
+  <p class="cv-q">三十年後，自由黃昏市場的屋頂不見了。<br>你會說它<strong>被毀了</strong>，還是<strong>被救了</strong>？</p>
+  <div class="cv-btns" data-cv-btns>
+    <button type="button" class="box" data-cv-pick="毀">被毀了</button>
+    <button type="button" class="box" data-cv-pick="救">被救了</button>
+  </div>
+  <p class="cv-after" data-cv-after aria-live="polite" hidden></p>
+</div>
     <div class="btn-row">
       <a class="box primary" href="#ch01">開始閱讀<span class="arrow">↓</span></a>
-      <a class="box" href="explore/">先看城市探索<span class="arrow">→</span></a>
+      <a class="box" href="#ch05">直接看思想實驗<span class="arrow">→</span></a>
     </div>
-    <figure>
-      <div class="ph" role="img" aria-label="影像待取得：自由黃昏市場主通道，有日期的街道近景">
-        <span class="ph-id">P03</span>
-        <span class="ph-txt">影像待取得｜自由黃昏市場 主通道<br>不以網路圖片暗充自攝。</span>
-      </div>
-      <figcaption>入口主圖預定為一張有日期的街道近景；拍攝日期與拍攝者依實際檔案填入。</figcaption>
-    </figure>
   </div>
 </header>
 
 <!-- ================= 章節索引 ================= -->
 <section class="index" aria-labelledby="idx-title">
   <div class="list">
-    <h2 class="kicker" id="idx-title">INDEX／六章與一個思想實驗</h2>
+    <h2 class="kicker" id="idx-title">INDEX／六章</h2>
     <ol>
-      <li><a class="row" href="#ch01"><span class="n">01</span><span class="t">你看見哪一刻 <span lang="en">Which Moment</span></span></a></li>
-      <li><a class="row" href="#ch02"><span class="n">02</span><span class="t">日常如何繼續 <span lang="en">Daily Life</span></span></a></li>
-      <li><a class="row" href="#ch03"><span class="n">03</span><span class="t">哪一層留下來 <span lang="en">Layers</span></span></a></li>
-      <li><a class="row" href="#ch04"><span class="n">04</span><span class="t">設計怎樣遇見時間 <span lang="en">Design &amp; Time</span></span></a></li>
-      <li><a class="row" href="#ch05"><span class="n">05</span><span class="t">城市的未定稿 <span lang="en">In Draft</span></span></a></li>
-      <li><a class="row" href="#ch06"><span class="n">06</span><span class="t">把問題帶回街上 <span lang="en">Back to the Street</span></span></a></li>
+      <li><a class="row" href="#ch01"><span class="n">01</span><span class="t">城市從來沒完成過 <span lang="en">Never Finished</span></span></a></li>
+      <li><a class="row" href="#ch02"><span class="n">02</span><span class="t">把屋頂拆了，市場還在 <span lang="en">Tear Off the Roof</span></span></a></li>
+      <li><a class="row" href="#ch03"><span class="n">03</span><span class="t">那不是我的房子 <span lang="en">Not My House</span></span></a></li>
+      <li><a class="row" href="#ch04"><span class="n">04</span><span class="t">85 不能倒 <span lang="en">The 85 Stays</span></span></a></li>
+      <li><a class="row" href="#ch05"><span class="n">05</span><span class="t">你會拆嗎？ <span lang="en">Would You Tear It Down?</span></span></a></li>
+      <li><a class="row" href="#ch06"><span class="n">06</span><span class="t">城市不等你 <span lang="en">The City Won't Wait</span></span></a></li>
     </ol>
-    <p class="caption" style="margin-top:20px">快速觀看約 3 分鐘：各章導讀 → 第五章比較一個情境 → 結語。完整閱讀約 12 至 18 分鐘（規劃值）。</p>
+    <p class="caption" style="margin-top:20px">閱讀時間約 5 分鐘。</p>
   </div>
   <div class="preview" aria-hidden="true">
     <div class="pv-box" data-pv></div>
   </div>
 </section>
 
-<!-- ================= 第一章 ================= -->
+<!-- ================= 01 城市從來沒完成過 ================= -->
 <section class="chapter" id="ch01" aria-labelledby="ch01-t">
   <div class="stage tone-ink on-dark">
-    <div class="stage-meta"><span>CHAPTER 01／06</span><span>觀看尺度</span></div>
+    <div class="stage-meta"><span>CHAPTER 01／06</span><span>高雄</span></div>
     <div class="booklet">
       <div class="peek" data-peek="ch01"></div>
       <div class="page page-l">
-        <div class="row-top"><span>01</span><span>高雄｜2026</span></div>
-        <h2 id="ch01-t">你看見哪一刻<span lang="en">Which Moment Do You See</span></h2>
-        <dl class="shift"><dt>原本的直覺</dt><dd>城市有一張可代表自己的樣子</dd><dt>本章的轉折</dt><dd>視角與時間窗口會選擇性地顯示變化</dd></dl>
+        <div class="row-top"><span>01</span><span>宣言</span></div>
+        <h2 id="ch01-t"><span class="tc-txt">城市從來沒完成過</span><span lang="en">Never Finished</span></h2>
       </div>
       <div class="page page-r">
-        <p class="lead">一張照片能留下城市的樣子，卻不能告訴我們它是否停止改變。拉長時間，或走近一點，原本穩定的事物可能露出另一種節奏。</p>
-        <p class="material">材料與行動｜同機位影像或有標示的空缺；選觀察尺度</p>
+        <span></span>
+        <dl class="shift"><dt>原本的直覺</dt><dd>城市有一張完成的樣子</dd><dt>本章的轉折</dt><dd>我們看見的只是其中一個瞬間</dd></dl>
       </div>
     </div>
   </div>
 
   <div class="wrap"><div class="inner">
     <div class="grid ch-body">
-      <div class="ch-meta"><span class="big" lang="en">01</span>正文<br>約 200 字</div>
+      <div class="ch-meta"><span class="big" lang="en">01</span></div>
       <div class="ch-text reveal">
-        <div class="claim"><span class="lb lb-interp">策展解釋</span>
-          <p>完工年份是有用的座標，但不是一棟建築最後一次發生事情的年份。外牆、設備、使用者與我們對它的理解，不一定同步更新。當我們說一個地方「一直都一樣」，首先需要交代：從什麼時候開始看？看的是哪個部分？本展以高雄的幾個場所提出這些問題。它們不是城市的縮影，而是讓我們練習辨認觀看尺度的入口。</p>
-        </div>
+        <p class="manifesto">城市從來沒有真正完成的一天。</p>
+        <p>有些建築改變了模樣，生活卻繼續；有些建築留在原地，逐漸成為城市的共同記憶。也有些事物隨著時間消失，讓新的可能出現。</p>
+        <p>我們所看見的城市，只是它漫長演變過程中的一個瞬間。</p>
+        <p class="author-line">我在淡水讀建築，但我最熟悉的城市是高雄。這個展覽，從我最熟的幾條街出發。</p>
       </div>
       <aside class="ch-notes reveal">
-        <div class="note-box">
-          <h3>五種內容標籤</h3>
-          <ul class="legend">
-            <li><span class="lb lb-data">資料</span><span>有可回溯來源，附 S 編號</span></li>
-            <li><span class="lb lb-field">現場紀錄</span><span>有日期、位置與方法，附 O 編號</span></li>
-            <li><span class="lb lb-memory">個人記憶</span><span>本人回述且同意刊登</span></li>
-            <li><span class="lb lb-interp">策展解釋</span><span>本展對資料或記憶的閱讀</span></li>
-            <li><span class="lb lb-hypo">假設情境</span><span>沒有發生、由本展設定的條件</span></li>
-          </ul>
+        <div class="drag-hint" data-drag-hint hidden>
+          <p class="kicker try">TRY｜試試看</p>
+          <p>拖動畫面上的碎片，試著拼出一座城市。</p>
         </div>
       </aside>
 
-      <div class="ch-wide block reveal">
-        <h3 class="kicker" style="margin-bottom:12px">選一個觀察尺度</h3>
-        <div class="seg" role="group" aria-label="觀察尺度">
-          <button class="box" type="button" data-tw="trade" aria-pressed="true">一次交易</button>
-          <button class="box" type="button" data-tw="day" aria-pressed="false">一天</button>
-          <button class="box" type="button" data-tw="year" aria-pressed="false">一年</button>
-          <button class="box" type="button" data-tw="gen" aria-pressed="false">一個世代</button>
-        </div>
-        <div class="tw">
-          <div data-tw-svg></div>
-          <div class="tw-out" data-tw-out aria-live="polite"></div>
-        </div>
-        <p class="caption"><span class="lb lb-interp">策展解釋</span> D02 時間窗口示意。依本展概念自繪，不按比例；刻點是抽象標記，不是任何場所的實際事件或變化週期。</p>
-      </div>
-
-      <div class="ch-wide block reveal">
-        <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--gutter)">
-          <figure>
-            <div class="ph r43" role="img" aria-label="影像待取得：同機位紀錄之一">
-              <span class="ph-id">P11</span><span class="ph-txt">影像待取得｜同機位異時 01</span>
-            </div>
-          </figure>
-          <figure>
-            <div class="ph r43" role="img" aria-label="影像待取得：同機位紀錄之二">
-              <span class="ph-id">P12</span><span class="ph-txt">影像待取得｜同機位異時 02</span>
-            </div>
-          </figure>
-        </div>
-        <p class="caption">同一機位的兩次紀錄。拍攝日期與相隔時間依實際檔案填入；目前不宣稱已取得前後對照。若只有一張照片，改為單圖並說明「這張照片沒有告訴我們什麼」，不合成舊景冒充史料。</p>
-      </div>
+      <figure class="ch-wide block photo">
+        <img src="assets/img/city-music-center.jpg" width="1600" height="1200" loading="lazy" alt="從高處看高雄流行音樂中心的白色建築群，前方輕軌列車沿著草皮軌道轉彎，遠方有正在施工的吊車。">
+        <figcaption>高雄流行音樂中心與輕軌｜遠方的吊車還在動。</figcaption>
+      </figure>
 
       <div class="ch-wide block">
         <p class="question"><span class="q-tag">反問</span>你認為沒有改變的，是建築的外形，還是你辨認它的方法？</p>
         <p class="transition-line">把時間拉近到一次買菜，我們會看見什麼？</p>
-        <nav class="ch-next" aria-label="第一章下一步">
-          <a class="box primary" href="#ch02">下一章：日常如何繼續<span class="arrow">↓</span></a>
-          <a class="box" href="sources/">查看來源與方法</a>
+        <nav class="ch-next" aria-label="下一章">
+          <a class="box primary" href="#ch02">下一章：把屋頂拆了，市場還在<span class="arrow">↓</span></a>
         </nav>
       </div>
     </div>
   </div></div>
 </section>
 
-<!-- ================= 第二章 ================= -->
+<!-- ================= 02 把屋頂拆了，市場還在 ================= -->
 <section class="chapter" id="ch02" aria-labelledby="ch02-t">
   <div class="stage tone-memory on-dark">
     <div class="stage-meta"><span>CHAPTER 02／06</span><span>自由黃昏市場</span></div>
     <div class="booklet">
       <div class="peek" data-peek="ch02"></div>
       <div class="page page-l">
-        <div class="row-top"><span>02</span><span>市場｜日常</span></div>
-        <h2 id="ch02-t">日常如何繼續<span lang="en">How Daily Life Goes On</span></h2>
-        <dl class="shift"><dt>原本的直覺</dt><dd>市場的價值就是熱鬧與新鮮</dd><dt>本章的轉折</dt><dd>重複生活也需要穩定條件</dd></dl>
+        <div class="row-top"><span>02</span><span>市場</span></div>
+        <h2 id="ch02-t"><span class="tc-txt">把屋頂拆了，市場還在</span><span lang="en">Tear Off the Roof</span></h2>
       </div>
       <div class="page page-r">
-        <p class="lead">市場的變化不只在新的攤位。交易、補貨、清理與等待，也在反覆重做市場。新的驚喜與可依靠的日常，可能需要同時成立。</p>
-        <p class="material">材料與行動｜市場細節、記憶線索；開啟證據標籤</p>
+        <span></span>
+        <dl class="shift"><dt>原本的直覺</dt><dd>市場的價值就是熱鬧與新鮮</dd><dt>本章的轉折</dt><dd>市場留下的是生活，不是建築</dd></dl>
       </div>
     </div>
   </div>
 
   <div class="wrap"><div class="inner">
     <div class="grid ch-body">
-      <div class="ch-meta"><span class="big" lang="en">02</span>場所檔案<br><a href="places/#ziyou-market">自由黃昏市場 →</a></div>
+      <div class="ch-meta"><span class="big" lang="en">02</span></div>
       <div class="ch-text reveal">
-        <p>自由黃昏市場是我們討論市場的起點。官方地方刊物曾介紹這裡的食材與熟食，但一篇介紹無法替我們回答經營者如何調整空間、工作條件是否改變。<a class="cite" data-src="S01"></a> 我們想知道的，是什麼讓下一次交易得以繼續。策展討論中對「不斷的變化」的期待，必須與其他可能的期待並列：熟悉的位置、負擔得起的維護、可以休息的時間。這些是接下來要問的問題，不能先寫成市場裡已經發生的事。</p>
-        <button class="box" type="button" data-evidence aria-pressed="false">開啟證據標籤</button>
-        <div class="block-sm" data-evidence-panel hidden>
-          <div class="claim"><span class="lb lb-data">資料</span><p>官方地方刊物對市場食材與熟食的介紹。<a class="cite" data-src="S01"></a> 不據此推論管理形式、土地權屬、攤位數、租金、歷史沿革或重建計畫。</p></div>
-          <div class="claim"><span class="lb lb-interp">策展解釋</span><p>「什麼讓下一次交易得以繼續」是本展提出的研究問題，不是市場現況的描述。</p></div>
-          <div class="claim"><span class="lb lb-field">現場紀錄</span><p>O01–O08 待紀錄：場所、日期、時段、天氣、方法與限制。不以單次觀察推論長期趨勢。</p></div>
-        </div>
+        <p>我想像三十年後的自由黃昏市場。</p>
+        <p>它可能不再有現在的鐵皮屋頂，停車場縮小了，市場與公園之間的界線也消失了。攤位可以重新排列，新的活動不斷出現。</p>
+        <p>但市場依然熱鬧，人們依然在這裡買菜、聊天、討價還價。</p>
+        <p>我不認為市場必須保留原本的建築，才能繼續是原本的市場。對我而言，市場真正重要的是不斷發生的生活，以及它持續容納變化的能力。</p>
       </div>
       <aside class="ch-notes reveal">
-        <blockquote class="q">
-          <p>一座允許攤位、活動、空間配置隨時代不斷調整的市場 這才是市場阿 不斷的變化每次都有新的驚喜</p>
-          <footer>策展討論中的原話（Q01），保留原文。這是策展人的期待，未證明自由黃昏市場已實施可移動攤位。<br><span class="lb lb-pending">署名方式待確認</span></footer>
-        </blockquote>
         <div class="note-box">
-          <h3>張力：驚喜與安定並存</h3>
-          <p>消費者期待新的攤位，經營者可能需要固定位置與熟客；一方的彈性可能成為另一方的成本。這是研究問題，而非市場現況。</p>
+          <h3>自由黃昏市場</h3>
+          <p>左營一座有大屋頂的市場，北臨孟子路、東臨自由三路，傍晚最熱鬧。</p>
         </div>
       </aside>
 
-      <div class="ch-wide block reveal">
-        <div class="note-box" style="border-color:var(--memory)">
-          <p class="kicker" style="margin-bottom:8px">記憶線索 M01</p>
-          <p><span class="lb lb-interp">策展解釋</span></p>
-          <p style="font-size:19px">前次討論曾出現一對賣碗粿的老夫婦。現在留下的是一條記憶線索，不是已完成的人物故事。在確認人物、地點與同意之前，我們先把問題留下：如果一種手藝或一段關係無法繼續，留下原來的空間，能留下多少？</p>
-        </div>
-      </div>
-
-      <div class="ch-wide block reveal">
-        <div class="grid" style="grid-template-columns:2fr 1fr;gap:var(--gutter)">
-          <figure>
-            <div class="ph" role="img" aria-label="影像待取得：自由黃昏市場攤位邊界與設備">
-              <span class="ph-id">P05</span><span class="ph-txt">影像待取得｜邊界與設備 01</span>
-            </div>
-          </figure>
-          <figure>
-            <div class="ph" style="aspect-ratio:4/5" role="img" aria-label="影像待取得：收攤或清理">
-              <span class="ph-id">P09</span><span class="ph-txt">影像待取得｜收攤或清理</span>
-            </div>
-          </figure>
-        </div>
-        <p class="caption">圖說範本：「自由黃昏市場，照片由［拍攝者］於［日期時段］記錄。此圖顯示［畫面可確認的行為或物件］，不能單獨證明長期變化。」公開版本必須填妥或移除圖片。</p>
+      <div class="ch-wide block">
+        <p class="kicker try">TRY｜試試看</p>
+        <figure class="compare" data-compare>
+          <img src="assets/img/market-lingya.jpg" width="1200" height="1600" loading="lazy" alt="苓雅公有市場：建築留著，走道兩側多數鐵捲門拉下">
+          <div class="compare-top"><img src="assets/img/market-sanfeng.jpg" width="1200" height="1600" loading="lazy" alt="三鳳中街：綠色鋼拱屋頂換新，人潮仍在"></div>
+          <span class="compare-line" aria-hidden="true"></span>
+          <span class="compare-tag l">三鳳中街｜屋頂換新了，人還在</span>
+          <span class="compare-tag r">苓雅公有市場｜建築留著，人不見了</span>
+          <input type="range" min="0" max="100" value="50" aria-label="左右拖動，比較三鳳中街與苓雅公有市場">
+        </figure>
+        <p class="compare-cap">同樣是老市場，差別不在屋頂，在有沒有人。</p>
+<p class="cv-echo" data-cv-echo hidden></p>
       </div>
 
       <div class="ch-wide block">
+        <aside class="thinker">
+          <p class="thinker-label">思想註腳</p>
+          <p class="thinker-name">Jane Jacobs｜《偉大城市的誕生與衰亡》，1961</p>
+          <p>城市的活力來自街道上反覆發生的日常使用，而不是規劃者畫出的形式。</p>
+          <p class="thinker-me">→ 我的市場論點從這裡出發：該留下的是生活，不是屋頂。</p>
+        </aside>
         <p class="question"><span class="q-tag">反問</span>你期待市場改變的部分，會不會正是另一個人需要穩定的部分？</p>
-        <p class="transition-line">換成一棟遠遠就能辨認的大樓，我們又希望什麼留下？</p>
-        <nav class="ch-next" aria-label="第二章下一步">
-          <a class="box primary" href="#ch03">下一章：哪一層留下來<span class="arrow">↓</span></a>
-          <a class="box" href="sources/#S01">這段話根據什麼？</a>
+        <p class="transition-line">但市場可以改變，不代表旁邊的一切都要跟著改變。</p>
+        <nav class="ch-next" aria-label="下一章">
+          <a class="box primary" href="#ch03">下一章：那不是我的房子<span class="arrow">↓</span></a>
         </nav>
       </div>
     </div>
   </div></div>
 </section>
 
-<!-- ================= 第三章 ================= -->
+<!-- ================= 03 那不是我的房子 ================= -->
 <section class="chapter" id="ch03" aria-labelledby="ch03-t">
   <div class="stage tone-archive on-dark">
-    <div class="stage-meta"><span>CHAPTER 03／06</span><span>85 大樓｜高雄車站｜輕軌</span></div>
+    <div class="stage-meta"><span>CHAPTER 03／06</span><span>哈瑪星｜果貿</span></div>
     <div class="booklet">
       <div class="peek" data-peek="ch03"></div>
       <div class="page page-l">
-        <div class="row-top"><span>03</span><span>地標｜移動</span></div>
-        <h2 id="ch03-t">哪一層留下來<span lang="en">Which Layer Remains</span></h2>
-        <dl class="shift"><dt>原本的直覺</dt><dd>保留或改建只能二選一</dd><dt>本章的轉折</dt><dd>外形、使用與可達性可以不同步</dd></dl>
+        <div class="row-top"><span>03</span><span>老屋</span></div>
+        <h2 id="ch03-t"><span class="tc-txt">那不是我的房子</span><span lang="en">Not My House</span></h2>
       </div>
       <div class="page page-r">
-        <p class="lead">外形、用途與路徑可以各自延續，也可以彼此衝突。問題不是替一個場所選「保留」或「更新」，而是說清楚我們在談哪一層，以及這一層對誰重要。</p>
-        <p class="material">材料與行動｜85 大樓、車站、輕軌；切換層次</p>
+        <span></span>
+        <dl class="shift"><dt>原本的直覺</dt><dd>城市更新就是整片一起改</dd><dt>本章的轉折</dt><dd>改變的想像，也要停在別人的產權前面</dd></dl>
       </div>
     </div>
   </div>
 
   <div class="wrap"><div class="inner">
     <div class="grid ch-body">
-      <div class="ch-meta"><span class="big" lang="en">03</span>場所檔案<br><a href="places/#85-tower">85 大樓 →</a><br><a href="places/#kaohsiung-station">高雄車站 →</a><br><a href="places/#light-rail">輕軌 →</a></div>
+      <div class="ch-meta"><span class="big" lang="en">03</span></div>
       <div class="ch-text reveal">
-        <p>把 85 大樓當作辨認城市輪廓的提問，不代表它能替所有高雄人承載同一份記憶。把高雄車站當作新舊時間交疊的提問，也不代表設計完成就等於每個人的使用經驗相同。輕軌則讓我們將注意力移向移動：路線已經出現，並不能直接證明誰的生活因此更方便。本章把可見的形體、實際使用與可接近的路徑分開閱讀，再問它們如何牽動彼此。</p>
+        <p>城市的改變，也有它的界線。</p>
+        <p>我可以想像自由黃昏市場在三十年後擁有完全不同的樣貌，但這不代表周圍的私人住宅也必須跟著改變。</p>
+        <p>對於市場旁的老屋，我更傾向尊重屋主的選擇。或許整理立面、改善街道環境，就已經足夠。</p>
+        <p>城市不是建築師一個人的作品。它由無數不同的使用者與所有權人共同組成，而每個人對未來都有不同的期待。</p>
+        <p>我希望城市能持續改變，但不認為自己的想像，就有權決定別人的生活。</p>
       </div>
-      <aside class="ch-notes reveal">
-        <div class="note-box">
-          <h3>資料附註：「完成」有不同定義</h3>
-          <p><span class="lb lb-data">資料</span></p>
-          <p>鐵道局截至 2026 年 10 月 28 日的施工階段頁面，分列高雄車站工程竣工與後續驗收改善等事項。<a class="cite" data-src="S03"></a></p>
-          <p>輕軌營運方將 2024 年 1 月 1 日試營運成圓與 2 月 26 日全線正式營運分開記載。<a class="cite" data-src="S05"></a></p>
-          <p class="muted" style="font-size:14px">這些節點用來說明「完成」有不同定義，不作設施好壞的證明。</p>
-        </div>
-      </aside>
+      <figure class="ch-notes reveal photo">
+        <img src="assets/img/old-shophouses.jpg" width="1600" height="1200" loading="lazy" alt="哈瑪星一排老街屋：左邊一間蓋著帆布，中間有洗石子立面，右邊綠窗，騎樓前停滿機車，幾間拉下鐵捲門。">
+        <figcaption>哈瑪星老街屋｜同一排房子，有人整修、有人蓋上帆布、有人拉下鐵捲門。</figcaption>
+      </figure>
 
-      <div class="ch-wide block reveal">
-        <h3 class="kicker" style="margin-bottom:12px">選一個層次：外形／使用／路徑。每次選擇會改變註記，不會替整個場所評分。</h3>
-        <div class="seg" role="group" aria-label="層次">
-          <button class="box" type="button" data-ly="form" aria-pressed="true">外形</button>
-          <button class="box" type="button" data-ly="use" aria-pressed="false">使用</button>
-          <button class="box" type="button" data-ly="route" aria-pressed="false">路徑</button>
-        </div>
-        <div class="layer-table" data-ly-out aria-live="polite"></div>
+      <div class="ch-wide block">
+<div class="nm" data-nm>
+  <p class="kicker nm-k">TRY｜試試看</p>
+  <p class="nm-hint">你是建築師。點一間房子，把它改成你想像的樣子。</p>
+  <svg class="nm-svg" viewBox="0 0 700 300" role="group" aria-label="一排五間老街屋，可以點選" data-nm-svg></svg>
+  <p class="nm-msg" data-nm-msg aria-live="polite">&nbsp;</p>
+  <div class="nm-end" data-nm-end hidden>
+    <p class="nm-score" data-nm-score></p>
+    <p class="nm-coda">城市不是建築師一個人的作品。</p>
+    <button type="button" class="box" data-nm-reset>再試一次</button>
+  </div>
+  <p class="nm-note">人物與對話為作者想像。</p>
+</div>
+
+<style>
+.nm [hidden] { display:none !important; }
+.nm { max-width:760px; margin:40px 0; }
+.nm-k { margin:0 0 6px; color:var(--change,#CF3F2B); }
+.nm-hint { margin:0 0 16px; }
+.nm-svg { display:block; width:100%; height:auto; border-top:1px solid var(--rule,#ddd); }
+.nm-svg .h { cursor:pointer; }
+.nm-svg .h:focus { outline:none; }
+.nm-svg .h:focus-visible .shell, .nm-svg .h:hover .shell { stroke-width:2; }
+.nm-svg .shell, .nm-svg .d { fill:#fff; stroke:var(--ink,#111); stroke-width:1; transition:stroke var(--t-mid,220ms), stroke-width var(--t-mid,220ms); }
+.nm-svg .shut { fill:url(#nm-hatch); stroke:var(--ink,#111); stroke-width:1; }
+.nm-svg .ground { stroke:var(--ink,#111); stroke-width:2; }
+.nm-svg .tag { font-family:var(--f-mono,monospace); font-size:12px; fill:var(--muted,#5c5c5c); }
+/* 狀態：紅＝改變，虛線＝假設／未定（沿用網站的標籤語言） */
+.nm-svg .yes .shell, .nm-svg .yes .d { stroke:var(--change,#CF3F2B); stroke-width:1.5; }
+.nm-svg .yes .tag, .nm-svg .half .tag { fill:var(--change,#CF3F2B); }
+.nm-svg .half .d.l { stroke:var(--change,#CF3F2B); stroke-width:1.5; }
+.nm-svg .away .shell, .nm-svg .away .d { stroke-dasharray:2 4; stroke:var(--muted,#5c5c5c); }
+.nm-svg .ask .shell { stroke-dasharray:6 4; stroke:var(--change,#CF3F2B); }
+.nm-svg .done { cursor:default; }
+.nm-msg { min-height:3.6em; margin:16px 0 0; font-family:var(--f-serif,serif); font-size:20px; line-height:1.6; }
+.nm-msg small { display:block; font-family:var(--f-tc,sans-serif); font-size:15px; color:var(--muted,#5c5c5c); }
+.nm-msg .box { margin:10px 8px 0 0; font-family:var(--f-tc,sans-serif); }
+.nm-end { border-top:1px solid var(--ink,#111); padding-top:16px; margin-top:8px; }
+.nm-score { font-size:28px; font-weight:700; margin:0; }
+.nm-note { font-size:13px; color:var(--muted,#5c5c5c); margin-top:16px; }
+.nm-coda { color:var(--muted,#5c5c5c); margin:4px 0 16px; }
+@media (prefers-reduced-motion: reduce) { .nm-svg * { transition:none !important; } }
+</style>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-nm]'); if (!root) return;
+  // 五位屋主（文字可以直接改）
+  var OWNERS = [
+    { h:170, res:'yes',  tag:'同意',     say:'「好啊，早就想整理了。」',     note:'這一間，你改成了。' },
+    { h:200, res:'no',   tag:'不要',     say:'「我住這裡六十年了，不要。」', note:'屋主拒絕。房子維持原樣。' },
+    { h:150, res:'away', tag:'聯絡不到', say:'……',                         note:'屋主在國外，聯絡不到。這間只能先維持原樣。' },
+    { h:185, res:'half', tag:'只改一半', say:'「我可以，但隔壁不同意動共用牆。」', note:'只改得了一半。' },
+    { h:165, res:'ask',  tag:'要你出錢', say:'「可以，但錢誰出？」',       note:'' }
+  ];
+  var svg = root.querySelector('[data-nm-svg]'), msg = root.querySelector('[data-nm-msg]');
+  var end = root.querySelector('[data-nm-end]'), score = root.querySelector('[data-nm-score]');
+  var ZH = ['零','一','兩','三','四','五'], done, changed;
+  function fmt(n) { var w = Math.floor(n), h = n - w > 0; return (w === 0 && h) ? '半間' : ZH[w] + (h ? '間半' : '間'); }
+  var W = 128, GAP = 8, BASE = 280;
+  function house(o, i) {
+    var x = 14 + i * (W + GAP), top = BASE - o.h, s = '';
+    s += '<g class="h" data-i="' + i + '" tabindex="0" role="button" aria-label="第 ' + (i + 1) + ' 間">';
+    s += '<rect class="shell" x="' + x + '" y="' + top + '" width="' + W + '" height="' + o.h + '"/>';
+    // 山牆
+    s += '<path class="d" d="M' + (x + 20) + ' ' + top + ' q' + (W / 2 - 20) + ' -22 ' + (W - 40) + ' 0"/>';
+    // 二樓窗（左右兩扇）
+    var wy = top + 26;
+    s += '<rect class="d l" x="' + (x + 18) + '" y="' + wy + '" width="34" height="44"/>';
+    s += '<rect class="d" x="' + (x + W - 52) + '" y="' + wy + '" width="34" height="44"/>';
+    // 陽台欄杆
+    var by = wy + 54;
+    s += '<line class="d" x1="' + (x + 10) + '" y1="' + by + '" x2="' + (x + W - 10) + '" y2="' + by + '"/>';
+    for (var k = x + 16; k < x + W - 10; k += 10) s += '<line class="d" x1="' + k + '" y1="' + by + '" x2="' + k + '" y2="' + (by + 14) + '"/>';
+    // 騎樓拱＋鐵捲門
+    var ay = BASE - 62;
+    s += '<path class="d" d="M' + (x + 8) + ' ' + BASE + ' V' + (ay + 14) + ' q' + (W / 2 - 8) + ' -20 ' + (W - 16) + ' 0 V' + BASE + '"/>';
+    s += '<rect class="shut" x="' + (x + 18) + '" y="' + (ay + 16) + '" width="' + (W - 36) + '" height="' + (BASE - ay - 16) + '"/>';
+    s += '<text class="tag" x="' + (x + W / 2) + '" y="' + (top - 30) + '" text-anchor="middle"></text>';
+    return s + '</g>';
+  }
+  function build() {
+    done = 0; changed = 0; end.hidden = true; msg.innerHTML = '&nbsp;';
+    var s = '<defs><pattern id="nm-hatch" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#fff"/><line x1="0" y1="3" x2="6" y2="3" stroke="#111" stroke-opacity=".35"/></pattern></defs>';
+    OWNERS.forEach(function (o, i) { s += house(o, i); });
+    s += '<line class="ground" x1="0" y1="' + BASE + '" x2="700" y2="' + BASE + '"/>';
+    svg.innerHTML = s;
+    svg.querySelectorAll('.h').forEach(function (g) {
+      g.addEventListener('click', function () { pick(g); });
+      g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(g); } });
+    });
+  }
+  function settle(g) { g.classList.add('done'); g.removeAttribute('tabindex'); done++;
+    if (done === OWNERS.length) { score.textContent = '五間房子，你只改得動' + fmt(changed) + '。'; end.hidden = false; } }
+  function pick(g) {
+    if (g.classList.contains('done') || g.classList.contains('ask')) return;
+    var o = OWNERS[+g.dataset.i];
+    g.classList.add(o.res); g.querySelector('.tag').textContent = o.tag;
+    msg.innerHTML = o.say + (o.note ? '<small>' + o.note + '</small>' : '');
+    if (o.res === 'yes') changed += 1;
+    if (o.res === 'half') changed += 0.5;
+    if (o.res !== 'ask') return settle(g);
+    msg.innerHTML += '<br><button type="button" class="box" data-pay>我出</button><button type="button" class="box" data-nopay>那算了</button>';
+    msg.querySelector('[data-pay]').onclick = function () {
+      g.classList.remove('ask'); g.classList.add('yes'); g.querySelector('.tag').textContent = '你出錢';
+      changed += 1; msg.innerHTML = '「好，那就改吧。」<small>你出了錢，改成了。但下一條街呢？</small>'; settle(g); };
+    msg.querySelector('[data-nopay]').onclick = function () {
+      g.classList.remove('ask'); msg.innerHTML = '「那就維持原樣。」<small>這間沒有改。</small>'; settle(g); };
+  }
+  root.querySelector('[data-nm-reset]').addEventListener('click', build);
+  build();
+})();
+</script>
+      </div>
+
+      <div class="ch-wide block pair">
+        <figure class="photo">
+          <img src="assets/img/guomao.jpg" width="1200" height="1600" loading="lazy" alt="從中庭仰望果貿社區的弧形住宅，每一戶的鐵窗、陽台與冷氣都不一樣。">
+          <figcaption>果貿社區｜同一棟建築，每一戶的窗都不一樣。</figcaption>
+        </figure>
+        <aside class="thinker">
+          <p class="thinker-label">思想註腳</p>
+          <p class="thinker-name">John Habraken｜《支撐體》（Supports），1961</p>
+          <p>集合住宅可以分成兩部分：共同的「支撐」由整體決定，每一戶的「填充」由住的人自己決定。</p>
+          <p class="thinker-me">→ 果貿就是這樣：外形是大家的，每扇窗是各家的。我的想像只能停在支撐這一層。</p>
+        </aside>
+      </div>
+
+      <div class="ch-wide block">
+        <p class="question"><span class="q-tag">反問</span>當你想像一條街的未來，你有沒有問過住在那裡的人？</p>
+        <p class="transition-line">那麼，一棟屬於私人、卻被整座城市看見的建築呢？</p>
+        <nav class="ch-next" aria-label="下一章">
+          <a class="box primary" href="#ch04">下一章：85 不能倒<span class="arrow">↓</span></a>
+        </nav>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ================= 04 85 不能倒 ================= -->
+<section class="chapter" id="ch04" aria-labelledby="ch04-t">
+  <div class="stage tone-ink on-dark">
+    <div class="stage-meta"><span>CHAPTER 04／06</span><span>85 大樓</span></div>
+    <div class="booklet">
+      <div class="peek" data-peek="ch04"></div>
+      <div class="page page-l">
+        <div class="row-top"><span>04</span><span>地標</span></div>
+        <h2 id="ch04-t"><span class="tc-txt">85 不能倒</span><span lang="en">The 85 Stays</span></h2>
+      </div>
+      <div class="page page-r">
+        <span></span>
+        <dl class="shift"><dt>原本的直覺</dt><dd>保留或改建只能二選一</dd><dt>本章的轉折</dt><dd>外形可以留下，內部可以更新</dd></dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap"><div class="inner">
+    <div class="grid ch-body">
+      <div class="ch-meta"><span class="big" lang="en">04</span><a href="places/#85-tower">85 大樓 →</a></div>
+      <div class="ch-text reveal">
+        <p>如果自由黃昏市場可以大幅改造，為什麼我卻希望保留 85 大樓？</p>
+        <p>因為有些建築的價值，早已超越原本的使用功能。</p>
+        <p>85 大樓對我而言，不只是一棟高樓，更是高雄天際線的一部分。即使它需要花費較高的成本更新，我仍然傾向保留它的形象，重新改善內部的使用方式。</p>
+        <p>城市需要改變，但不是所有事物都需要以同樣的方式改變。</p>
+        <p>85 大樓的外形早已成為整座城市的天際線，它的價值不只屬於業主；但正因如此，保留的成本也不該只由業主承擔。</p>
+        <p class="manifesto">決定一個地方該怎麼改變的，不是它有多老，而是它的價值在哪裡，以及誰有權決定。</p>
+      </div>
+
+      <div class="ch-wide block">
+<div class="tw" data-tw85>
+  <p class="kicker tw-k">TRY｜試試看</p>
+  <p class="tw-q" data-tw-q>85 大樓老了，維修很貴。你要怎麼辦？</p>
+  <figure class="tw-fig">
+    <svg viewBox="0 0 640 340" class="tw-svg" role="img" aria-label="高雄天際線與 85 大樓線稿">
+      <defs><pattern id="tw-hatch" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#fff"/><line x1="0" y1="6" x2="6" y2="0" stroke="#111" stroke-opacity=".22"/></pattern></defs>
+      <g class="tw-city">
+        <rect x="24" y="216" width="64" height="104"/><rect x="96" y="176" width="52" height="144"/>
+        <rect x="156" y="236" width="72" height="84"/><rect x="430" y="194" width="58" height="126"/>
+        <rect x="496" y="156" width="48" height="164"/><rect x="552" y="226" width="56" height="94"/>
+      </g>
+      <path class="tw-gap" d="M250 320 V164 H296 V24 H344 V164 H390 V320"/>
+      <g class="tw-body">
+        <path class="tw-out" d="M250 320 V164 H296 V24 H344 V164 H390 V320 H356 V238 H284 V320 Z"/>
+        <g class="tw-floors"></g>
+      </g>
+      <line x1="0" y1="320" x2="640" y2="320" class="tw-ground"/>
+    </svg>
+  </figure>
+  <div class="tw-voices" data-tw-voices aria-live="polite"></div>
+  <p class="tw-end" data-tw-end></p>
+  <div class="tw-btns" data-tw-btns></div>
+  <p class="tw-note">人物與對話為作者想像。</p>
+</div>
+
+<style>
+.tw [hidden] { display:none !important; }
+.tw { max-width:680px; margin:40px 0; }
+.tw-k { margin:0 0 6px; color:var(--change,#CF3F2B); }
+.tw-q { font-family:var(--f-serif,serif); font-size:22px; line-height:1.5; margin:0 0 12px; min-height:1.5em; }
+.tw-fig { margin:0; }
+.tw-svg { display:block; width:100%; height:auto; border-top:1px solid var(--rule,#ddd); }
+.tw-city rect { fill:url(#tw-hatch); stroke:var(--muted,#5c5c5c); stroke-width:1; }
+.tw-ground { stroke:var(--ink,#111); stroke-width:2; }
+.tw-out { fill:#fff; stroke:var(--ink,#111); stroke-width:1.5; transition:opacity 1.2s, fill 1.2s; }
+.tw-floors line { stroke:var(--ink,#111); stroke-width:1; stroke-opacity:.35; transition:stroke .4s, stroke-opacity .8s; }
+.tw-gap { fill:none; stroke:var(--change,#CF3F2B); stroke-width:1.5; stroke-dasharray:6 5; opacity:0; transition:opacity 1.2s; }
+.tw.s-tear .tw-body { opacity:0; transition:opacity 1.2s; }
+.tw.s-tear .tw-gap { opacity:1; }
+.tw.s-keep .tw-out { stroke:var(--change,#CF3F2B); }
+.tw.s-keep .tw-floors line { stroke:var(--change,#CF3F2B); stroke-opacity:1; }
+.tw.s-leave .tw-out { fill:url(#tw-hatch); }
+.tw.s-leave .tw-floors line.off { stroke-opacity:0; }
+.tw-btns { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+.tw-voices { margin-top:18px; }
+.tw-voice { margin:0 0 12px; opacity:0; transform:translateY(6px); transition:opacity .5s, transform .5s; }
+.tw-voice.on { opacity:1; transform:none; }
+.tw-voice q { display:block; font-family:var(--f-serif,serif); font-size:20px; line-height:1.55; quotes:"「" "」"; }
+.tw-voice span { font-family:var(--f-mono,monospace); font-size:13px; color:var(--muted,#5c5c5c); }
+.tw-end { font-size:20px; font-weight:700; margin:16px 0 0; min-height:1.4em; }
+.tw-end small { display:block; font-weight:400; font-size:16px; color:var(--muted,#5c5c5c); margin-top:6px; }
+.tw-note { font-size:13px; color:var(--muted,#5c5c5c); margin-top:16px; }
+@media (prefers-reduced-motion: reduce) { .tw * { transition:none !important; } }
+</style>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-tw85]'); if (!root) return;
+  var floors = root.querySelector('.tw-floors'), btns = root.querySelector('[data-tw-btns]'),
+      voices = root.querySelector('[data-tw-voices]'), end = root.querySelector('[data-tw-end]'), q = root.querySelector('[data-tw-q]');
+  var s = '', n = 0;
+  for (var y = 36; y < 164; y += 9) s += '<line x1="300" y1="' + y + '" x2="340" y2="' + y + '"/>';
+  for (var y2 = 174; y2 < 318; y2 += 9) s += y2 < 238 ? '<line x1="254" y1="' + y2 + '" x2="386" y2="' + y2 + '"/>'
+    : '<line x1="254" y1="' + y2 + '" x2="282" y2="' + y2 + '"/><line x1="358" y1="' + y2 + '" x2="386" y2="' + y2 + '"/>';
+  floors.innerHTML = s;
+  var lines = floors.querySelectorAll('line');
+
+  // ===== 劇本（文字可以直接改）=====
+  var PATHS = {
+    tear: { btn:'拆掉', voices:[
+      ['我每天騎車過橋，都會看一眼它還在不在。', '前鎮的上班族'],
+      ['外地朋友來，我都說：看到 85，就到高雄了。', '計程車司機'],
+      ['拆了也好，那麼舊，又沒人管。', '85 大樓的一位業主'] ],
+      end:'有人鬆了一口氣，有人失去了方向。' },
+    keep: { btn:'保留外殼，換掉裡面', ask:'外殼的維修費，誰出？', pay:{
+      '業主自己出': [['我只有一層，憑什麼要我出整棟的外牆？', '85 大樓的一位業主']],
+      '政府出':     [['那市場的屋頂漏水，怎麼沒人幫忙？', '自由黃昏市場的攤商']],
+      '全高雄分攤': [['我又沒住在那裡……', '苓雅的居民'], ['不過，我每天都看得到它。', '同一位居民']] },
+      end:'保住一個天際線，比拆掉它難。' },
+    leave: { btn:'先不管它', voices:[
+      ['樓上又空了一層。', '大樓管理員'],
+      ['燈越來越少，晚上看起來像缺了牙。', '對岸散步的人'] ],
+      end:'不做決定，也是一種決定。' }
+  };
+  var FINAL = '三條路，每一條都有人付出代價。<small>決定一個地方怎麼改變的，不是它有多老，而是它的價值在哪裡，以及誰有權決定。</small>';
+  // ================================
+
+  var tried = {}, timers = [];
+  function clearT() { timers.forEach(clearTimeout); timers = []; }
+  function say(list, then) {
+    list.forEach(function (v, i) {
+      timers.push(setTimeout(function () {
+        var p = document.createElement('p'); p.className = 'tw-voice';
+        p.innerHTML = '<q>' + v[0] + '</q><span>—— ' + v[1] + '</span>'; voices.appendChild(p);
+        requestAnimationFrame(function () { p.classList.add('on'); });
+      }, 900 + i * 1400));
+    });
+    timers.push(setTimeout(then, 900 + list.length * 1400));
+  }
+  function button(label, fn, primary) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'box' + (primary ? ' primary' : '');
+    b.textContent = label; b.addEventListener('click', fn); btns.appendChild(b); return b;
+  }
+  function reset() {
+    clearT(); root.className = 'tw'; voices.innerHTML = ''; end.innerHTML = ''; btns.innerHTML = '';
+    lines.forEach(function (l) { l.classList.remove('off'); });
+    q.textContent = '85 大樓老了，維修很貴。你要怎麼辦？';
+    Object.keys(PATHS).forEach(function (k) { button(PATHS[k].btn + (tried[k] ? ' ✓' : ''), function () { go(k); }); });
+  }
+  function finish(k) {
+    tried[k] = true; end.innerHTML = PATHS[k].end; btns.innerHTML = '';
+    var all = Object.keys(PATHS).every(function (x) { return tried[x]; });
+    if (all) { timers.push(setTimeout(function () { end.innerHTML = PATHS[k].end + '<br><br>' + FINAL; }, 1200)); }
+    button(all ? '再看一次' : '試另一條路', reset);
+  }
+  function go(k) {
+    btns.innerHTML = ''; voices.innerHTML = ''; end.innerHTML = '';
+    var P = PATHS[k];
+    if (k === 'tear') { root.classList.add('s-tear'); say(P.voices, function () { finish(k); }); }
+    if (k === 'leave') {
+      root.classList.add('s-leave');
+      lines.forEach(function (l, i) { if (i % 3 !== 0) timers.push(setTimeout(function () { l.classList.add('off'); }, 200 + i * 60)); });
+      say(P.voices, function () { finish(k); });
+    }
+    if (k === 'keep') {
+      root.classList.add('s-keep'); q.textContent = P.ask;
+      Object.keys(P.pay).forEach(function (who) {
+        button(who, function () { btns.innerHTML = ''; say(P.pay[who], function () { finish(k); }); });
+      });
+    }
+  }
+  reset();
+})();
+</script>
       </div>
 
       <div class="ch-text block reveal">
-        <h3 class="kicker" style="margin-bottom:12px">D03｜一棟建築內部的不同速度</h3>
-        <ol class="brand-stack" aria-label="Brand 六層與本展加註">
+        <ol class="brand-stack" aria-label="建築六層">
           <li><span class="mono">Site</span>場地</li>
           <li><span class="mono">Structure</span>結構</li>
           <li><span class="mono">Skin</span>外皮</li>
           <li><span class="mono">Services</span>設備</li>
           <li><span class="mono">Space Plan</span>空間配置</li>
           <li><span class="mono">Stuff</span>物件</li>
-          <li class="added"><span class="mono">本展加註</span>工作、照護與決策如何延續？</li>
         </ol>
-        <p class="caption">依 Brand 概念重繪，本展加註社會層次。<a class="cite" data-src="S10"></a> 建築六層與文明尺度的 Pace Layers 是不同框架；本展不指定任何固定更換週期。</p>
+        <p class="caption">依 Stewart Brand 的建築六層重繪。85 大樓可以留下外皮，更新裡面的使用。</p>
       </div>
-      <aside class="ch-notes block reveal">
-        <figure>
-          <div class="ph r43" role="img" aria-label="影像待取得：高雄車站新舊關係">
-            <span class="ph-id">P19</span><span class="ph-txt">影像待取得｜高雄車站 新舊關係</span>
-          </div>
-          <figcaption>每張附日期。舊站體搬遷、回置或開放日期在取得對應檔案前不做時間動畫。</figcaption>
+
+      <div class="ch-wide block pair">
+        <figure class="photo">
+          <img src="assets/img/tower85.jpg" width="1200" height="1600" loading="lazy" alt="從草地與步道遠望 85 大樓，深色塔身中間有一個開口，周圍是較矮的大樓。">
+          <figcaption>85 大樓</figcaption>
         </figure>
-      </aside>
+        <figure class="photo">
+          <img src="assets/img/station-old-new.jpg" width="1200" height="1600" loading="lazy" alt="高雄車站舊站體的日式屋頂與「高雄車站」四個字，後方是新的弧形大樓。">
+          <figcaption>高雄車站｜舊站體留下來，新站在它身後長高。</figcaption>
+        </figure>
+      </div>
 
       <div class="ch-wide block">
+        <aside class="thinker">
+          <p class="thinker-label">思想註腳</p>
+          <p class="thinker-name">Stewart Brand｜《建築如何學習》（How Buildings Learn），1994</p>
+          <p>一棟建築由好幾層組成，外皮、設備、空間配置各自用不同的速度改變。</p>
+          <p class="thinker-me">→ 所以 85 大樓不必二選一：外殼可以慢，裡面可以快。</p>
+        </aside>
+        <aside class="thinker">
+          <p class="thinker-label">思想註腳</p>
+          <p class="thinker-name">Rem Koolhaas／OMA｜Cronocaos，2010</p>
+          <p>被列入保存的東西越來越多，保存本身也成了一種改變城市的力量。</p>
+          <p class="thinker-me">→ 這是對我的提醒：主張留下 85，就必須說清楚為什麼是它，而不是全部都留。</p>
+        </aside>
         <p class="question"><span class="q-tag">反問</span>如果外形留下，進入它的條件改了，你還會說它沒有改變嗎？</p>
-        <p class="transition-line">建築師曾經怎樣想像這些不同步的變化？</p>
-        <nav class="ch-next" aria-label="第三章下一步">
-          <a class="box primary" href="#ch04">下一章：設計怎樣遇見時間<span class="arrow">↓</span></a>
-          <a class="box" href="sources/#S03">這段話根據什麼？</a>
+        <p class="transition-line">接下來，換你來決定。</p>
+        <nav class="ch-next" aria-label="下一章">
+          <a class="box primary" href="#ch05">下一章：你會拆嗎？<span class="arrow">↓</span></a>
         </nav>
       </div>
     </div>
   </div></div>
 </section>
 
-<!-- ================= 第四章 ================= -->
-<section class="chapter" id="ch04" aria-labelledby="ch04-t">
-  <div class="stage tone-ink on-dark">
-    <div class="stage-meta"><span>CHAPTER 04／06</span><span>五項國際參照</span></div>
-    <div class="booklet">
-      <div class="peek" data-peek="ch04"></div>
-      <div class="page page-l">
-        <div class="row-top"><span>04</span><span>參照｜反問</span></div>
-        <h2 id="ch04-t">設計怎樣遇見時間<span lang="en">When Design Meets Time</span></h2>
-        <dl class="shift"><dt>原本的直覺</dt><dd>可變設計能預先解決未來</dd><dt>本章的轉折</dt><dd>設計意圖、實際使用與治理可能分離</dd></dl>
-      </div>
-      <div class="page page-r">
-        <p class="lead">從市場大廳、可替換膠囊到未建成的活動框架，設計曾以不同方式迎接變化。這些案例有用之處，是讓我們看見各種承諾成立的條件。</p>
-        <p class="material">材料與行動｜五項參照的比較與反問</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap"><div class="inner">
-    <div class="grid ch-body">
-      <div class="ch-meta"><span class="big" lang="en">04</span>案例索引<br><a href="references/">全部參照 →</a></div>
-      <div class="ch-text reveal">
-        <p>Markthal 把市場與住宅等機能放在同一建築中；這讓我們思考框架的力量，但不能直接推出自由黃昏市場應該被放入相同形式。<a class="cite" data-src="S06"></a> Cronocaos 把保存與消除過去的同時性放到面前；本展用它追問價值如何被選取。<a class="cite" data-src="S07"></a> 中銀膠囊塔的更換構想沒有依原定方式實現，使用卻仍然改變；設計劇本之外也有建築的生命。<a class="cite" data-src="S08"></a> Fun Palace 提供一個尚未建成、以活動與使用者需求為核心的框架想像。<a class="cite" data-src="S09"></a> Brand 則提醒我們不同層次可以有不同節奏。<a class="cite" data-src="S10"></a> 把這些觀點帶回高雄，是為了修正問題，而非替城市找到標準答案。</p>
-      </div>
-      <aside class="ch-notes reveal">
-        <div class="note-box">
-          <h3>參照之間如何互相挑戰</h3>
-          <p>Brand 幫助拆開層次，但需要補上誰擁有調整權；Fun Palace 強化活動的開放想像，也需要追問參與是否真能落實；中銀膠囊塔提醒設計承諾不控制實際使用；Cronocaos 使保存的選擇浮現；Markthal 使框架與混合機能變得具體。</p>
-          <p class="muted" style="font-size:14px">以上是本展的組織方式，不宣稱這些作品構成單一思想傳承。</p>
-        </div>
-      </aside>
-
-      <div class="ch-full block reveal">
-        <h3 class="kicker" style="margin-bottom:12px">D04｜五案例比較（主視覺待授權，先以文字呈現）</h3>
-        <div class="ref-grid">
-          <article class="ref-card">
-            <span class="mono">R01｜MVRDV｜2004–2014</span>
-            <h3 lang="en">Markthal</h3>
-            <p>將市場與住宅等機能整合在同一建築中。<a class="cite" data-src="S06"></a></p>
-            <p class="ask">當市場被放進一個強烈的框架，哪些活動得到支持，哪些活動需要協商？</p>
-          </article>
-          <article class="ref-card">
-            <span class="mono">R02｜OMA／AMO｜2010</span>
-            <h3 lang="en">Cronocaos</h3>
-            <p>將保存與消除過去的同時性放進同一個問題。<a class="cite" data-src="S07"></a></p>
-            <p class="ask">留下一個被辨認的形象，是否也留下生活其中的條件？</p>
-          </article>
-          <article class="ref-card">
-            <span class="mono">R03｜黑川紀章｜1972／2022</span>
-            <h3>中銀膠囊塔</h3>
-            <p>膠囊原本被設想可以更換，實際生命卻沿著別的路徑展開。<a class="cite" data-src="S08"></a></p>
-            <p class="ask">沒有按設計劇本更新，並不等於使用停止變化。</p>
-          </article>
-          <article class="ref-card">
-            <span class="mono">R04｜Cedric Price｜未建成</span>
-            <h3 lang="en">Fun Palace</h3>
-            <p>將活動的改變放進空間構想，與 Joan Littlewood 合作。<a class="cite" data-src="S09"></a></p>
-            <p class="ask">一套能重組的系統，是否也把重組的權利交給使用者？</p>
-          </article>
-          <article class="ref-card">
-            <span class="mono">R05｜Stewart Brand｜1994</span>
-            <h3 lang="en">How Buildings Learn</h3>
-            <p>一棟建築內部可能同時存在多種變化速度。<a class="cite" data-src="S10"></a></p>
-            <p class="ask">工作、照護與決策如何延續？（本展延伸）</p>
-          </article>
-        </div>
-        <p class="caption">每個參照最多一張主圖、一段短文、一個反問。外部案例圖片未取得授權前不轉載。這些反問是本展的策展問題，不是原作者對高雄的評語。</p>
-      </div>
-
-      <div class="ch-wide block">
-        <p class="question"><span class="q-tag">反問</span>一個設計容許改變，是否也容許使用者決定暫時不改？</p>
-        <p class="transition-line">接下來，你可以試著修改條件，看看不同的選擇留下哪些問題。</p>
-        <nav class="ch-next" aria-label="第四章下一步">
-          <a class="box primary" href="#ch05">下一章：城市的未定稿<span class="arrow">↓</span></a>
-          <a class="box" href="references/">查看案例索引</a>
-        </nav>
-      </div>
-    </div>
-  </div></div>
-</section>
-
-<!-- ================= 第五章 ================= -->
+<!-- ================= 05 你會拆嗎？ ================= -->
 <section class="chapter" id="ch05" aria-labelledby="ch05-t">
   <div class="stage tone-change on-dark">
-    <div class="stage-meta"><span>CHAPTER 05／06</span><span>假設情境｜非預測｜非都市計畫｜示意模型</span></div>
+    <div class="stage-meta"><span>CHAPTER 05／06</span><span>假設情境｜非預測</span></div>
     <div class="booklet">
       <div class="peek" data-peek="ch05"></div>
       <div class="page page-l">
         <div class="row-top"><span>05</span><span>思想實驗</span></div>
-        <h2 id="ch05-t">城市的未定稿<span lang="en">The City in Draft</span></h2>
-        <dl class="shift"><dt>原本的直覺</dt><dd>一條滑桿就是未來</dd><dt>本章的轉折</dt><dd>每個選擇依賴假設，也產生代價</dd></dl>
+        <h2 id="ch05-t"><span class="tc-txt">你會拆嗎？</span><span lang="en">Would You Tear It Down?</span></h2>
       </div>
       <div class="page page-r">
-        <p class="lead">這裡是一個思想實驗。你選擇的是假設條件，不是未來年份的答案。請同時閱讀畫面、前提與可能付出的代價。</p>
-        <p class="material">材料與行動｜關鍵 3D 與等值 2D；選條件再比較</p>
+        <p class="lead">這裡是一個思想實驗。你選擇的是假設條件，不是未來年份的答案。</p>
+        <dl class="shift"><dt>原本的直覺</dt><dd>一條滑桿就是未來</dd><dt>本章的轉折</dt><dd>每個選擇依賴假設，也產生代價</dd></dl>
       </div>
     </div>
   </div>
 
   <div class="wrap"><div class="inner">
     <div class="grid ch-body">
-      <div class="ch-meta"><span class="big" lang="en">05</span>探索城市<br><a href="explore/">開啟空間實驗 →</a></div>
+      <div class="ch-meta"><span class="big" lang="en">05</span></div>
       <div class="ch-text reveal">
-        <div class="claim"><span class="lb lb-hypo">假設情境</span>
-          <p>我們以市場活動單元為核心，建立一個簡化場景。你可以比較「局部調整」與「活動重組」，再查看兩者依賴的管理與維護條件。某些外形可能留下，某些使用可能轉換；另一個選項也可以是暫緩變動並優先照顧日常。場景沒有替真正的攤商、居民或公共機關作決定，也沒有推算三十年後的高雄。地理關係經策展抽象化；重要的是每個選擇提出了什麼問題。</p>
-        </div>
+        <p>我們以市場為場景，比較三種可能：局部調整、活動重組，或暫緩變動。每一種選擇都會留下一些東西，也會失去一些東西。</p>
       </div>
-      <aside class="ch-notes reveal">
-        <div class="note-box">
-          <h3>基準說明</h3>
-          <p>概念基底，非現況模型。現場照片與資料尚未補足；未測繪區域以空白或粗量體表示。</p>
-          <p class="muted" style="font-size:14px">「兩組」「一處」只是便於製作的示意數量，不代表現場攤位或設備數。</p>
-        </div>
-      </aside>
 
       <div class="ch-full block">
-        <div data-scenario="compact">
-          <p>情境比較需要 JavaScript。文字版：情境 A「局部調整與日常維持」、B「活動重組與共享空間」、C「暫緩空間變動」，各有 t0、t+15、t+30 三個假設節點；完整前提、代價與未模擬範圍請見 <a href="explore/">探索城市</a>。</p>
-        </div>
+        <p class="kicker try">TRY｜試試看</p>
+        <iframe class="exp-frame" src="explore/" title="自由黃昏市場思想實驗" loading="lazy"></iframe>
+        <p class="exp-link"><a href="explore/">全螢幕觀看 →</a></p>
       </div>
 
       <div class="ch-wide block">
+        <aside class="thinker">
+          <p class="thinker-label">思想註腳</p>
+          <p class="thinker-name">Cedric Price｜Fun Palace，1961 起（未建成）</p>
+          <p>建築不必有完成的樣子，而是一個讓使用者自己重新組合活動的框架。</p>
+          <p class="thinker-me">→ B 情境的可移動攤位來自這個想法。但 Price 把決定權交給使用者，這裡的按鈕只是模擬——真正的決定在街上。</p>
+        </aside>
         <p class="question"><span class="q-tag">反問</span>你剛才改變了空間，還是只改變了畫面？維持它的人，有沒有出現在你的選項裡？</p>
         <p class="transition-line">離開模型，把這個問題帶回下一次經過的街道。</p>
-        <nav class="ch-next" aria-label="第五章下一步">
-          <a class="box primary" href="#ch06">下一章：把問題帶回街上<span class="arrow">↓</span></a>
-          <a class="box" href="explore/">開啟空間實驗</a>
+        <nav class="ch-next" aria-label="下一章">
+          <a class="box primary" href="#ch06">下一章：城市不等你<span class="arrow">↓</span></a>
         </nav>
       </div>
     </div>
   </div></div>
 </section>
 
-<!-- ================= 第六章 ================= -->
+<!-- ================= 06 城市不等你 ================= -->
 <section class="chapter" id="ch06" aria-labelledby="ch06-t">
   <div class="stage tone-muted on-dark">
-    <div class="stage-meta"><span>CHAPTER 06／06</span><span>再次觀察的方法</span></div>
+    <div class="stage-meta"><span>CHAPTER 06／06</span><span>結語</span></div>
     <div class="booklet">
       <div class="peek" data-peek="ch06"></div>
       <div class="page page-l">
         <div class="row-top"><span>06</span><span>結語</span></div>
-        <h2 id="ch06-t">把問題帶回街上<span lang="en">Back to the Street</span></h2>
-        <dl class="shift"><dt>原本的直覺</dt><dd>看完展覽就得到答案</dd><dt>本章的轉折</dt><dd>再次觀察也需要辨認自己的立場</dd></dl>
+        <h2 id="ch06-t"><span class="tc-txt">城市不等你</span><span lang="en">The City Won't Wait</span></h2>
       </div>
       <div class="page page-r">
         <p class="lead">展覽停在這裡，城市沒有。我們能帶走的不是一張最後的藍圖，而是一種再次觀察的方法。</p>
-        <p class="material">材料與行動｜提問卡、來源入口</p>
+        <dl class="shift"><dt>原本的直覺</dt><dd>看完展覽就得到答案</dd><dt>本章的轉折</dt><dd>再次觀察也需要辨認自己的立場</dd></dl>
       </div>
     </div>
   </div>
 
   <div class="wrap"><div class="inner">
     <div class="grid ch-body">
-      <div class="ch-meta"><span class="big" lang="en">06</span>提問卡<br>可列印</div>
+      <div class="ch-meta"><span class="big" lang="en">06</span></div>
       <div class="ch-text reveal">
         <p>下次經過熟悉的地方，試著分開記錄三件事：你實際看見什麼、你想起什麼、你據此推論什麼。再問誰正在維持這個地方，誰希望它改變。如果你來到一座還不熟悉的城市，也可以先承認自己尚未擁有它的過去。這份展覽從高雄開始，但觀看的練習不必停在高雄。</p>
       </div>
-      <aside class="ch-notes reveal">
-        <div class="note-box">
-          <h3>提問卡不收集個資</h3>
-          <p>你填寫的文字只留在自己的畫面上，不會送出或儲存。可以直接列印，或空白列印後帶到街上。</p>
-        </div>
-      </aside>
 
-      <div class="ch-wide block print-zone">
-        <form class="qcard" onsubmit="return false" aria-label="提問卡">
-          <p class="kicker" style="margin-bottom:16px">提問卡｜城市不是完成品</p>
-          <ol>
-            <li><label for="q1">我看見的</label><textarea id="q1"></textarea></li>
-            <li><label for="q2">我記得的</label><textarea id="q2"></textarea></li>
-            <li><label for="q3">我推論的</label><textarea id="q3"></textarea></li>
-            <li><label for="q4">我還不知道的</label><textarea id="q4"></textarea></li>
-            <li><label for="q5">可能需要詢問的人</label><textarea id="q5"></textarea></li>
-          </ol>
-          <div class="btn-row no-print" style="margin-top:16px"><button class="box" type="button" data-print>列印提問卡</button></div>
-        </form>
+      <div class="ch-wide block">
+<div class="cc" data-cc>
+  <p class="kicker cc-k">TRY｜試試看</p>
+  <p class="cc-q" data-cc-q>這條街上的東西，會一樣一樣消失。你只能留住三樣。</p>
+  <svg class="cc-svg" viewBox="0 0 760 260" role="group" aria-label="一條街，上面有八樣東西，可以點選留住" data-cc-svg></svg>
+  <div class="cc-row">
+    <button type="button" class="box primary" data-cc-start>開始 <span class="arrow">→</span></button>
+    <span class="cc-left" data-cc-left></span>
+  </div>
+  <div class="cc-end" data-cc-end hidden>
+    <p class="cc-endline" data-cc-endline></p>
+    <canvas width="900" height="600" data-cc-canvas aria-label="我留下的街道卡片"></canvas>
+    <div class="cc-row">
+      <a class="box" data-cc-dl download="城市不等你.png">下載我留下的街 <span class="arrow">↓</span></a>
+      <button type="button" class="box" data-cc-again>再走一次</button>
+    </div>
+  </div>
+  <p class="cc-note">下次經過熟悉的地方，看看還剩下什麼。</p>
+</div>
+
+<style>
+.cc [hidden] { display:none !important; }
+.cc { max-width:800px; margin:40px 0; }
+.cc-k { margin:0 0 6px; color:var(--change,#CF3F2B); }
+.cc-q { font-family:var(--f-serif,serif); font-size:22px; line-height:1.5; margin:0 0 12px; }
+.cc-svg { display:block; width:100%; height:auto; border-top:1px solid var(--rule,#ddd); user-select:none; }
+.cc-svg .it { cursor:pointer; transition:opacity 1.4s; }
+.cc-svg .it .ln { fill:#fff; stroke:var(--ink,#111); stroke-width:1.4; transition:stroke .2s; }
+.cc-svg .it text { font-family:var(--f-mono,monospace); font-size:12px; fill:var(--muted,#5c5c5c); }
+.cc-svg .it:hover .ln { stroke-width:2.4; }
+.cc-svg .it:focus { outline:none; }
+.cc-svg .it:focus-visible .ln { stroke-width:2.8; }
+.cc-svg .it.kept .ln { stroke:var(--change,#CF3F2B); stroke-width:2.2; }
+.cc-svg .it.kept text { fill:var(--change,#CF3F2B); }
+.cc-svg .it.fading .ln { stroke-dasharray:3 4; stroke:var(--muted,#5c5c5c); }
+.cc-svg .it.gone { opacity:0; pointer-events:none; }
+.cc-svg .ground { stroke:var(--ink,#111); stroke-width:2; }
+.cc-row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:12px; }
+.cc-left { font-family:var(--f-mono,monospace); font-size:14px; color:var(--muted,#5c5c5c); }
+.cc-end { border-top:1px solid var(--ink,#111); margin-top:16px; padding-top:16px; }
+.cc-endline { font-size:22px; font-weight:700; margin:0 0 12px; }
+.cc-endline small { display:block; font-weight:400; font-size:16px; color:var(--muted,#5c5c5c); margin-top:4px; }
+.cc canvas { width:100%; height:auto; display:block; border:1px solid var(--ink,#111); }
+.cc-note { font-size:13px; color:var(--muted,#5c5c5c); margin-top:14px; }
+@media (prefers-reduced-motion: reduce) { .cc * { transition:none !important; } }
+</style>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-cc]'); if (!root) return;
+  var svg = root.querySelector('[data-cc-svg]'), startB = root.querySelector('[data-cc-start]'), left = root.querySelector('[data-cc-left]');
+  var endBox = root.querySelector('[data-cc-end]'), endLine = root.querySelector('[data-cc-endline]'), q = root.querySelector('[data-cc-q]');
+  var cv = root.querySelector('[data-cc-canvas]'), g = cv.getContext('2d'), dl = root.querySelector('[data-cc-dl]');
+  var G = 220;   // 地面線
+  // ===== 街上的八樣東西（名稱可以改；圖形是簡單線稿）=====
+  var ITEMS = [
+    { name:'碗粿攤',     x:20,  d:'M0 0 h70 v-34 h-70 z M6 -34 l6 -22 h46 l6 22 M10 0 v10 M60 0 v10' },
+    { name:'老招牌',     x:110, d:'M10 -150 h26 v110 h-26 z M23 -40 v40' },
+    { name:'騎樓長椅',   x:170, d:'M0 -22 h70 M0 -22 v22 M70 -22 v22 M0 -36 h70' },
+    { name:'榕樹',       x:270, d:'M30 0 v-60 M30 -60 m-44 0 a44 34 0 1 0 88 0 a44 34 0 1 0 -88 0' },
+    { name:'紅色郵筒',   x:370, d:'M0 0 v-50 a16 12 0 0 1 32 0 v50 z M6 -40 h20' },
+    { name:'修車行',     x:430, d:'M0 0 v-90 h90 v90 M0 -60 h90 M0 -50 h90 M0 -40 h90' },
+    { name:'公用電話',   x:550, d:'M0 0 v-100 h36 v100 M8 -80 h20 v26 h-20 z' },
+    { name:'阿伯的機車', x:620, d:'M0 -8 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M70 -8 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M20 -14 h50 l-8 -26 h-26 z M62 -40 l10 -10' }
+  ];
+  var ORDER = [3, 6, 0, 5, 1, 7, 4, 2];   // 消失的順序（榕樹最先，越在乎的越早不見）
+  // =======================================================
+  var kept, goneN, timer, running;
+  function draw() {
+    var s = '<line class="ground" x1="0" y1="' + G + '" x2="760" y2="' + G + '"/>';
+    ITEMS.forEach(function (it, i) {
+      s += '<g class="it" data-i="' + i + '" tabindex="0" role="button" aria-label="留住' + it.name + '" transform="translate(' + it.x + ' ' + G + ')">' +
+           '<path class="ln" d="' + it.d + '"/><text x="0" y="24">' + it.name + '</text></g>';
+    });
+    svg.innerHTML = s;
+    svg.querySelectorAll('.it').forEach(function (el) {
+      el.addEventListener('click', function () { keep(el); });
+      el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); keep(el); } });
+    });
+  }
+  function status() { left.textContent = running ? '還能留住 ' + (3 - kept.length) + ' 樣' : ''; }
+  function keep(el) {
+    if (!running || el.classList.contains('gone') || el.classList.contains('kept') || kept.length >= 3) return;
+    el.classList.remove('fading'); el.classList.add('kept'); kept.push(+el.dataset.i); status();
+  }
+  function tick() {
+    var next = null;
+    for (var j = 0; j < ORDER.length; j++) {
+      var el = svg.querySelector('.it[data-i="' + ORDER[j] + '"]');
+      if (!el.classList.contains('kept') && !el.classList.contains('gone')) { next = el; break; }
+    }
+    if (!next) return finish();
+    next.classList.add('fading');
+    timer = setTimeout(function () {
+      if (!next.classList.contains('kept')) { next.classList.add('gone'); goneN++; }
+      timer = setTimeout(tick, 600);
+    }, 1500);
+  }
+  function start() {
+    draw(); kept = []; goneN = 0; running = true; endBox.hidden = true; startB.hidden = true;
+    q.textContent = '點一下，留住它。'; status(); timer = setTimeout(tick, 1200);
+  }
+  function finish() {
+    running = false; status(); clearTimeout(timer);
+    var names = kept.map(function (i) { return ITEMS[i].name; });
+    q.textContent = '街道安靜下來了。';
+    endLine.innerHTML = (names.length ? '你留住了：' + names.join('、') + '。' : '你什麼都沒留住。') +
+      '<small>其他 ' + goneN + ' 樣，城市沒有等你。</small>';
+    card(names); endBox.hidden = false;
+  }
+  function card(names) {
+    var INK = '#111111', RED = '#CF3F2B', MUTED = '#5C5C5C';
+    var TC = '"Noto Sans TC","PingFang TC",sans-serif', SERIF = '"Noto Serif TC","Noto Sans TC",serif', MONO = '"IBM Plex Mono",ui-monospace,monospace';
+    g.fillStyle = '#fff'; g.fillRect(0, 0, 900, 600);
+    g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(30, 30, 840, 540);
+    g.fillStyle = MUTED; g.font = '18px ' + MONO; g.fillText('THE CITY WON’T WAIT｜城市不等你', 70, 85);
+    // 街道：留下的用紅線，消失的只剩虛線位置
+    g.save(); g.translate(70, 380); g.scale(1, 1);
+    g.strokeStyle = INK; g.lineWidth = 2; g.beginPath(); g.moveTo(0, 0); g.lineTo(760, 0); g.stroke();
+    ITEMS.forEach(function (it, i) {
+      var p = new Path2D(it.d); g.save(); g.translate(it.x, 0);
+      if (kept.indexOf(i) >= 0) { g.strokeStyle = RED; g.lineWidth = 2.4; g.setLineDash([]); }
+      else { g.strokeStyle = '#cccccc'; g.lineWidth = 1; g.setLineDash([3, 5]); }
+      g.stroke(p); g.restore();
+    });
+    g.restore(); g.setLineDash([]);
+    g.fillStyle = INK; g.font = '30px ' + SERIF;
+    g.fillText(names.length ? '我留住了：' + names.join('、') : '我什麼都沒留住。', 70, 450);
+    g.fillStyle = MUTED; g.font = '20px ' + TC; g.fillText('下次經過熟悉的地方，看看還剩下什麼。', 70, 500);
+    g.font = '16px ' + MONO; g.textAlign = 'right'; g.fillText(new Date().toISOString().slice(0, 10), 830, 540); g.textAlign = 'left';
+    dl.href = cv.toDataURL('image/png');
+  }
+  startB.addEventListener('click', start);
+  root.querySelector('[data-cc-again]').addEventListener('click', start);
+  draw();
+})();
+</script>
+        <p class="your-city">這是我在高雄的街。你的呢？在淡水，可能是清水街的市場；在你家附近，可能是一間已經拉下鐵捲門的店。</p>
+        <aside class="thinker">
+          <p class="thinker-label">思想註腳</p>
+          <p class="thinker-name">Giorgio Agamben｜〈什麼是當代？〉，2008</p>
+          <p>真正當代的人，和自己的時代保持一點距離，所以看得見它的暗處。</p>
+          <p class="thinker-me">→ 這個展覽想做的就是這件事：不接受「保存就是好」或「更新就是好」的預設答案。</p>
+        </aside>
       </div>
+
+      <figure class="ch-full block photo wide">
+        <img src="assets/img/night-harbor.jpg" width="1440" height="1083" loading="lazy" alt="夜晚的高雄流行音樂中心，建築打上藍綠燈光，港邊浮著大型充氣裝置，步道上人群散步。">
+        <figcaption>高雄流行音樂中心｜展覽停在這裡，城市沒有。</figcaption>
+      </figure>
 
       <div class="ch-full block">
         <p class="closing">我們看見的是一個版本。<br>下一個版本，還需要被討論。</p>
         <nav class="ch-next block-sm" aria-label="結尾">
-          <a class="box primary" href="explore/">重看我的情境</a>
-          <a class="box" href="sources/">查看資料與方法</a>
-          <a class="box" href="#idx-title">回到章節</a>
+          <a class="box" href="#top">回到開頭<span class="arrow">↑</span></a>
         </nav>
       </div>
     </div>
@@ -498,26 +798,70 @@
 <footer class="foot">
   <div>
     <p style="margin:0 0 8px;color:var(--ink);font-weight:600">城市不是完成品 <span lang="en">THE CITY IS NEVER FINISHED</span></p>
-    <p style="margin:0">淡江大學建築學系 當代思潮課程｜線上展覽<br>主要場域 高雄｜2D 策展敘事與 3D 思想實驗｜版本 1.0（2026-11-13）</p>
+    <p style="margin:0">淡江大學建築學系 當代思潮課程｜線上展覽<br>陳星劭　415368058<br>版本 1.1（2026-11-13）</p>
+    <p class="foot-small">本網站中的未來情境為作者想像。照片皆為作者拍攝。</p>
   </div>
   <nav aria-label="頁尾導覽">
     <ul>
-      <li><a href="#ch01">閱讀展覽</a></li>
       <li><a href="explore/">探索城市</a></li>
       <li><a href="places/">場所檔案</a></li>
-      <li><a href="references/">案例索引</a></li>
+      <li><a href="references/">思想脈絡</a></li>
       <li><a href="sources/">資料與方法</a></li>
       <li><a href="about/">關於</a></li>
     </ul>
   </nav>
 </footer>
 
+<!-- 封面「先選邊站」與 02 章回應 -->
+<style>
+.cv [hidden], .cv-echo[hidden] { display:none !important; }
+.cv { margin:32px 0 0; max-width:640px; }
+.cv-q { font-family:var(--f-serif,serif); font-size:26px; line-height:1.55; margin:0 0 16px; }
+.cv-q strong { font-weight:700; }
+.cv-btns { display:flex; gap:8px; }
+.cv-btns .box { font-size:16px; padding:0 22px; }
+.cv-after { font-size:16px; color:var(--muted,#5c5c5c); margin:14px 0 0; }
+.cv-after b { color:var(--change,#CF3F2B); font-weight:500; }
+.cv-echo { font-family:var(--f-serif,serif); font-size:22px; line-height:1.6; border-left:3px solid var(--change,#CF3F2B); padding:4px 0 4px 16px; margin:28px 0; max-width:640px; }
+.cv-echo b { color:var(--change,#CF3F2B); }
+.cv-echo small { display:block; font-family:var(--f-tc,sans-serif); font-size:15px; color:var(--muted,#5c5c5c); }
+</style>
+
+<script>
+(function () {
+  var KEY = 'cnf-cover-pick', root = document.querySelector('[data-cv]');
+  var echo = document.querySelector('[data-cv-echo]');
+  function get() { try { return sessionStorage.getItem(KEY); } catch (e) { return window.__cnfPick || null; } }
+  function set(v) { try { sessionStorage.setItem(KEY, v); } catch (e) {} window.__cnfPick = v; }
+  // 02 章的回應文字（可以直接改）
+  var ECHO = {
+    '毀': '你一開始說：屋頂不見了，市場就<b>被毀了</b>。<small>但苓雅市場的屋頂還在，人卻不見了。三鳳中街換了屋頂，人還在。你還這樣覺得嗎？</small>',
+    '救': '你一開始說：屋頂不見了，市場<b>被救了</b>。<small>可是，拆掉屋頂的錢誰出？原本的攤位還有沒有位置？往下看，答案沒有那麼簡單。</small>'
+  };
+  function showEcho() {
+    var v = get(); if (!echo || !v) return;
+    echo.innerHTML = ECHO[v]; echo.hidden = false;
+  }
+  if (root) {
+    var after = root.querySelector('[data-cv-after]'), btns = root.querySelector('[data-cv-btns]');
+    btns.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-cv-pick]'); if (!b) return;
+      set(b.dataset.cvPick);
+      btns.querySelectorAll('.box').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      after.innerHTML = '記住你的答案：<b>' + b.textContent + '</b>。往下看完，再問自己一次。';
+      after.hidden = false; showEcho();
+    });
+    var v = get();
+    if (v) { var pre = btns.querySelector('[data-cv-pick="' + v + '"]'); if (pre) pre.click(); }
+  }
+  showEcho();
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/home.js"></script>
-<script src="assets/js/scenario.js"></script>
 <script src="assets/js/motion.js"></script>
 </body>
 </html>

@@ -8,17 +8,17 @@
 
   /* ---------------- 內容資料 ---------------- */
   var CHAPTERS = [
-    { id: "ch01", n: "01", tc: "你看見哪一刻", en: "Which Moment Do You See" },
-    { id: "ch02", n: "02", tc: "日常如何繼續", en: "How Daily Life Goes On" },
-    { id: "ch03", n: "03", tc: "哪一層留下來", en: "Which Layer Remains" },
-    { id: "ch04", n: "04", tc: "設計怎樣遇見時間", en: "When Design Meets Time" },
-    { id: "ch05", n: "05", tc: "城市的未定稿", en: "The City in Draft" },
-    { id: "ch06", n: "06", tc: "把問題帶回街上", en: "Back to the Street" }
+    { id: "ch01", n: "01", tc: "城市從來沒完成過", en: "Never Finished" },
+    { id: "ch02", n: "02", tc: "把屋頂拆了，市場還在", en: "Tear Off the Roof" },
+    { id: "ch03", n: "03", tc: "那不是我的房子", en: "Not My House" },
+    { id: "ch04", n: "04", tc: "85 不能倒", en: "The 85 Stays" },
+    { id: "ch05", n: "05", tc: "你會拆嗎？", en: "Would You Tear It Down?" },
+    { id: "ch06", n: "06", tc: "城市不等你", en: "The City Won't Wait" }
   ];
   var NAV = [
     { key: "home", tc: "閱讀展覽", href: "index.html#ch01" },
     { key: "explore", tc: "探索城市", href: "explore/" },
-    { key: "references", tc: "案例索引", href: "references/" },
+    { key: "references", tc: "思想脈絡", href: "references/" },
     { key: "sources", tc: "資料與方法", href: "sources/" },
     { key: "about", tc: "關於", href: "about/" }
   ];
@@ -72,19 +72,19 @@
     '<a class="logo" href="' + href("index.html") + '"><b>城市不是完成品</b><span lang="en">THE CITY<br>IS NEVER<br>FINISHED</span></a>' +
     '<a class="cube-wrap" href="' + chHref("ch01") + '" aria-label="章節進度"><div class="cube" aria-hidden="true">' +
       '<div class="f f1"></div><div class="f f2"></div><div class="f f3"></div><div class="f f4"></div><div class="f f5"></div><div class="f f6"></div><div class="f fc"></div>' +
-    '</div><span class="cube-count" data-count>— ／06</span></a>' +
+    '</div></a>' +
     '<div class="chapgrid">' + CHAPTERS.map(function (c) {
       return '<a class="box" href="' + chHref(c.id) + '" data-chlink="' + c.id + '" title="第' + c.n + '章 ' + c.tc + '"><span class="sr-only">第</span>' + c.n + '<span class="sr-only">章 ' + c.tc + '</span></a>';
     }).join("") + '</div></nav>';
 
   var corner = '<svg class="corner" viewBox="0 0 64 64" aria-hidden="true"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#111111" stroke-width="1"/></pattern></defs><path d="M0 0H64L56 8 48 6 44 14 36 12 32 22 24 20 22 30 14 28 12 38 6 36 0 48Z" fill="url(#hatch)" stroke="#111111"/></svg>';
 
-  var motion = '<button class="box motion-toggle" type="button" aria-pressed="' + rm + '">' +
-    '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 15 15 1v14z" fill="none" stroke="currentColor"/><path d="M5 15 15 5" stroke="currentColor"/></svg><span class="lbl">減少動畫</span><span class="sr-only">（目前' + (rm ? "開啟" : "關閉") + '）</span></button>';
+  var motion = '<button class="box motion-toggle" type="button" title="減少動畫" aria-pressed="' + rm + '">' +
+    '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 15 15 1v14z" fill="none" stroke="currentColor"/><path d="M5 15 15 5" stroke="currentColor"/></svg><span class="sr-only">減少動畫（目前' + (rm ? "開啟" : "關閉") + '）</span></button>';
 
   var mbar = '<div class="mbar"><a class="title" href="' + href("index.html") + '">城市不是完成品</a>' +
     '<button class="box" type="button" data-open-sheet aria-haspopup="dialog">目錄</button></div>' +
-    '<button class="box chapbtn" type="button" data-open-sheet aria-haspopup="dialog"><span data-chapbtn>目錄</span></button>';
+    (PAGE === "home" ? '<div class="progress" aria-hidden="true"><span class="progress-num">00／06</span><span class="progress-track"><span class="progress-bar"></span></span><span class="progress-end">未完成</span></div>' : '');
 
   var sheet = '<div class="sheet" role="dialog" aria-modal="true" aria-label="目錄"><div class="panel">' +
     '<div class="close-row"><button class="box" type="button" data-close-sheet>關閉</button></div>' +
@@ -109,7 +109,7 @@
     var on = !doc.classList.contains("reduce-motion");
     doc.classList.toggle("reduce-motion", on);
     mt.setAttribute("aria-pressed", String(on));
-    mt.querySelector(".sr-only").textContent = "（目前" + (on ? "開啟" : "關閉") + "）";
+    mt.querySelector(".sr-only").textContent = "減少動畫（目前" + (on ? "開啟" : "關閉") + "）";
     try { localStorage.setItem(rmKey, on ? "1" : "0"); } catch (e) {}
     announce(on ? "已開啟減少動畫" : "已關閉減少動畫");
   });
@@ -188,23 +188,17 @@
 
   /* ---------------- 章節進度 ---------------- */
   var cube = document.querySelector(".cube");
-  var countEl = document.querySelector("[data-count]");
-  var chapBtn = document.querySelector("[data-chapbtn]");
   var ROT = [
     "rotateX(-24deg) rotateY(36deg)", "rotateX(-24deg) rotateY(96deg)", "rotateX(-58deg) rotateY(156deg)",
     "rotateX(-24deg) rotateY(216deg)", "rotateX(-10deg) rotateY(276deg)", "rotateX(-40deg) rotateY(336deg)"
   ];
   function setChapter(idx) {
     if (idx < 0) {
-      if (countEl) countEl.textContent = "— ／06";
-      if (chapBtn) chapBtn.textContent = "目錄";
       document.querySelectorAll("[data-chlink]").forEach(function (a) { a.removeAttribute("aria-current"); });
       return;
     }
     var c = CHAPTERS[idx];
     if (cube) cube.style.transform = ROT[idx];
-    if (countEl) countEl.textContent = c.n + "／06";
-    if (chapBtn) chapBtn.textContent = "章節 " + (idx + 1) + "／6";
     document.querySelectorAll("[data-chlink]").forEach(function (a) {
       if (a.getAttribute("data-chlink") === c.id) a.setAttribute("aria-current", "true");
       else a.removeAttribute("aria-current");
@@ -222,6 +216,28 @@
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+  }
+
+  /* ---------------- 進度線：永遠畫不滿（最多 94%） ---------------- */
+  var prog = document.querySelector(".progress");
+  if (prog && chapterEls.length) {
+    var pNum = prog.querySelector(".progress-num"), pBar = prog.querySelector(".progress-bar");
+    var updateProgress = function () {
+      var mid = window.innerHeight * 0.5, idx = -1, frac = 0;
+      chapterEls.forEach(function (c, i) {
+        var r = c.getBoundingClientRect();
+        if (r.top <= mid) { idx = i; frac = Math.min(1, (mid - r.top) / r.height); }
+      });
+      var atEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      var pct = idx < 0 ? 0 : ((idx + frac) / chapterEls.length) * 100;
+      if (atEnd) pct = 100;
+      pBar.style.width = Math.min(pct, 94) + "%";
+      pNum.textContent = (idx < 0 ? "00" : String(idx + 1).padStart(2, "0")) + "／" + String(chapterEls.length).padStart(2, "0");
+      prog.classList.toggle("is-end", pct >= 94);
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
   }
 
   /* ---------------- 進場（只觸發顯示，不挾持捲動） ---------------- */
@@ -325,8 +341,8 @@
   var PEEKS = {
     ch01: [ { x: 0, y: 0, w: 3, d: 3, h: 2.4, style: "wire" }, { x: 0.5, y: 0.5, w: 3, d: 3, h: 2.4, style: "wiredash" }, { x: 1, y: 1, w: 3, d: 3, h: 2.4, style: "wiredash" } ],
     ch02: [ { x: 0, y: 0, w: 1.6, d: 1.2, h: 1, style: "wire" }, { x: 2, y: 0, w: 1.6, d: 1.2, h: 1, style: "wire" }, { x: 4, y: 0, w: 1.6, d: 1.2, h: 1, style: "wire" }, { x: 0, y: 2.2, w: 1.6, d: 1.2, h: 1, style: "wire" }, { x: 2, y: 2.2, w: 1.6, d: 1.2, h: 1, style: "wiredash" }, { x: 4, y: 2.2, w: 1.6, d: 1.2, h: 1, style: "wire" } ],
-    ch03: [ { x: 0, y: 0, w: 3.2, d: 3.2, h: 0.4, style: "wire" }, { x: 0.2, y: 0.2, w: 2.8, d: 2.8, h: 0.4, z: 0.9, style: "wire" }, { x: 0.4, y: 0.4, w: 2.4, d: 2.4, h: 0.4, z: 1.8, style: "wiredash" }, { x: 0.6, y: 0.6, w: 2, d: 2, h: 0.4, z: 2.7, style: "wire" } ],
-    ch04: [ { x: 1.1, y: 1.1, w: 1, d: 1, h: 5, style: "wire" }, { x: 0, y: 1.1, w: 1, d: 1, h: 1, z: 0.6, style: "wire" }, { x: 2.2, y: 1.1, w: 1, d: 1, h: 1, z: 1.6, style: "wire" }, { x: 1.1, y: 0, w: 1, d: 1, h: 1, z: 2.6, style: "wiredash" }, { x: 1.1, y: 2.2, w: 1, d: 1, h: 1, z: 3.4, style: "wire" }, { x: 0, y: 1.1, w: 1, d: 1, h: 1, z: 3.8, style: "wiredash" } ],
+    ch03: [ { x: 0, y: 0, w: 1.2, d: 3, h: 2.4, style: "wire" }, { x: 1.3, y: 0, w: 1.2, d: 3, h: 3.2, style: "wire" }, { x: 2.6, y: 0, w: 1.2, d: 3, h: 2.0, style: "wiredash" }, { x: 3.9, y: 0, w: 1.2, d: 3, h: 2.8, style: "wire" } ],
+    ch04: [ { x: 0, y: 0.6, w: 1, d: 1.6, h: 2.6, style: "wire" }, { x: 2.0, y: 0.6, w: 1, d: 1.6, h: 2.6, style: "wire" }, { x: 0.6, y: 0.8, w: 1.8, d: 1.2, h: 1.6, z: 2.6, style: "wire" }, { x: 1.0, y: 1.0, w: 1.0, d: 0.8, h: 2.8, z: 4.2, style: "wiredash" } ],
     ch05: [ { x: 0, y: 0, w: 6, d: 4, h: 0, style: "wire" }, { x: 0.5, y: 0.5, w: 1.5, d: 1, h: 1, style: "wire" }, { x: 2.5, y: 0.5, w: 1.5, d: 1, h: 1, style: "wiredash" }, { x: 4.2, y: 2.3, w: 1.4, d: 1.2, h: 1.4, style: "wiredash" }, { x: 0.5, y: 2.5, w: 1.5, d: 1, h: 1, style: "wire" } ],
     ch06: [ { kind: "line", x1: 0, y1: 2, x2: 7, y2: 2, color: "#FFFFFF", dash: "2 5", sw: 1.4 }, { x: 0.4, y: 0, w: 1.4, d: 1.4, h: 2.2, style: "wire" }, { x: 3, y: 2.8, w: 1.2, d: 1.2, h: 1.2, style: "wire" }, { x: 5.2, y: 0, w: 1.4, d: 1.4, h: 3, style: "wiredash" } ]
   };
